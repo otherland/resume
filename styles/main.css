@@ -56,6 +56,33 @@ a { color: inherit; text-decoration: none; }
 strong { font-weight: 500; color: var(--accent); }
 ::selection { background: var(--accent-dim); color: var(--accent); }
 
+/* Inline links within body text */
+.about__body a,
+.work-entry__narrative a,
+.work-entry__subtitle a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-dim);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.3s;
+}
+
+.about__body a:hover,
+.work-entry__narrative a:hover,
+.work-entry__subtitle a:hover {
+    text-decoration-color: var(--accent);
+}
+
+/* Work entry title links */
+.work-entry__title a {
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.work-entry__title a:hover {
+    color: var(--accent);
+}
+
 /* ============================================
    GRAIN TEXTURE OVERLAY
    ============================================ */
@@ -138,6 +165,27 @@ strong { font-weight: 500; color: var(--accent); }
 
 .nav__links a:hover { color: var(--text); }
 .nav__links a:hover::after { width: 100%; }
+
+/* WhatsApp nav button */
+.nav__whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #25D366 !important;
+    padding: 5px 14px;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s var(--ease);
+}
+
+.nav__whatsapp::after { display: none !important; }
+
+.nav__whatsapp:hover {
+    background: rgba(37, 211, 102, 0.08);
+    border-color: #25D366;
+}
+
+.nav__whatsapp svg { flex-shrink: 0; }
 
 /* ============================================
    HERO
@@ -317,6 +365,21 @@ strong { font-weight: 500; color: var(--accent); }
 .divider__line {
     height: 1px;
     background: var(--border);
+    transition: transform 0.9s var(--ease);
+}
+
+/* Divider line-draw animation */
+.divider.reveal {
+    transform: none;
+}
+
+.divider.reveal .divider__line {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.divider.reveal.visible .divider__line {
+    transform: scaleX(1);
 }
 
 /* ============================================
@@ -896,6 +959,8 @@ strong { font-weight: 500; color: var(--accent); }
     .hero__annotation:first-child { border-left: 1.5px solid var(--border); padding-left: 16px; }
 
     .nav__links { gap: 20px; }
+    .nav__whatsapp-text { display: none; }
+    .nav__whatsapp { padding: 5px 8px; }
 
     .lab__grid { grid-template-columns: 1fr; }
     .lab__card--featured { grid-column: span 1; }

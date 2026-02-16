@@ -7,7 +7,6 @@
 
     // Nav scroll behavior
     const nav = document.getElementById('nav');
-    let lastScroll = 0;
 
     window.addEventListener('scroll', function () {
         const scrollY = window.scrollY;
@@ -17,8 +16,6 @@
         } else {
             nav.classList.remove('scrolled');
         }
-
-        lastScroll = scrollY;
     }, { passive: true });
 
     // Smooth scroll for nav links
@@ -37,9 +34,9 @@
     });
 
     // Reveal on scroll (IntersectionObserver)
-    var revealElements = document.querySelectorAll('.reveal');
-
     if ('IntersectionObserver' in window) {
+        var revealElements = document.querySelectorAll('.reveal');
+
         var revealObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -52,12 +49,38 @@
             rootMargin: '0px 0px -60px 0px'
         });
 
+        // Observe reveal elements, skip children of stagger containers
         revealElements.forEach(function (el) {
-            revealObserver.observe(el);
+            if (!el.closest('.lab__grid') && !el.closest('.timeline__grid')) {
+                revealObserver.observe(el);
+            }
         });
+
+        // Staggered reveal for grid children (lab cards, timeline entries)
+        var gridObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var items = entry.target.querySelectorAll('.reveal');
+                    Array.prototype.forEach.call(items, function (item, i) {
+                        setTimeout(function () {
+                            item.classList.add('visible');
+                        }, i * 80);
+                    });
+                    gridObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.lab__grid, .timeline__grid').forEach(function (el) {
+            gridObserver.observe(el);
+        });
+
     } else {
         // Fallback: just show everything
-        revealElements.forEach(function (el) {
+        document.querySelectorAll('.reveal').forEach(function (el) {
             el.classList.add('visible');
         });
     }
