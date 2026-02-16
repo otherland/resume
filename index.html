@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Yates - Full-Stack Engineer, Founder, Builder</title>
+    <meta name="description" content="12+ years building software that matters. Enterprise platform modernization at scale. Founder of B2B automation business. From physics research to production systems.">
+    <meta name="theme-color" content="#F4F3EE">
+    <meta property="og:title" content="Tom Yates - Full-Stack Engineer, Founder, Builder">
+    <meta property="og:description" content="12+ years of full-stack engineering. Enterprise SaaS modernization, B2B automation at scale, and deep technical research.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <!-- Grain overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">TY</a>
+            <div class="nav__links">
+                <a href="#work">Work</a>
+                <a href="#earlier">Earlier Career</a>
+                <a href="#lab">Lab</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero__inner">
+            <div class="hero__label anim-fade" style="--delay: 0">Available for new opportunities</div>
+            <h1 class="hero__name anim-fade" style="--delay: 1">Tom<br>Yates</h1>
+            <div class="hero__role anim-fade" style="--delay: 2">Full-Stack Engineer <span class="hero__ampersand">&</span> Founder</div>
+
+            <div class="hero__annotations">
+                <div class="hero__annotation hero__annotation--left anim-fade" style="--delay: 3">
+                    <span class="annotation__number">12+</span>
+                    <span class="annotation__label">years building<br>production software</span>
+                </div>
+                <div class="hero__annotation hero__annotation--center anim-fade" style="--delay: 4">
+                    <span class="annotation__number">162M+</span>
+                    <span class="annotation__label">records unified<br>& queried at scale</span>
+                </div>
+                <div class="hero__annotation hero__annotation--right anim-fade" style="--delay: 5">
+                    <span class="annotation__number">10K+</span>
+                    <span class="annotation__label">residents<br>monitored daily</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll anim-fade" style="--delay: 6">
+            <div class="hero__scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="about">
+        <div class="about__grid wrap">
+            <div class="about__intro reveal">
+                <p class="about__lead">I build systems that matter. Enterprise platforms serving thousands.
+                Automation engines processing hundreds of millions of records. Research that pushes boundaries.</p>
+                <p class="about__body">Twelve years of shipping production software across enterprise SaaS, ecommerce startups,
+                affiliate marketing platforms, and my own businesses. Currently Lead Engineer at <strong>Canary Care</strong>,
+                orchestrating the modernization of a connected care platform serving 200+ facilities and 10,000+ vulnerable
+                residents across the UK. Simultaneously building <strong>Wexley Capital</strong>, a B2B automation business
+                with a unified dataset of 162M+ contacts, AI-powered scoring, and full email delivery infrastructure.</p>
+                <p class="about__body">I think in systems, not features. Whether that means containerizing 18 backend services
+                onto AWS ECS, reverse-engineering APIs to build scraping infrastructure that scales, or validating
+                particle physics predictions to parts-per-million accuracy &mdash; the thread is always the same:
+                understand the problem deeply, then build the right thing.</p>
+            </div>
+            <aside class="about__details reveal">
+                <div class="detail">
+                    <span class="detail__label">Location</span>
+                    <span class="detail__value">Somerset, UK</span>
+                </div>
+                <div class="detail">
+                    <span class="detail__label">Current role</span>
+                    <span class="detail__value">Lead/Senior Engineer, Canary Care</span>
+                </div>
+                <div class="detail">
+                    <span class="detail__label">Side venture</span>
+                    <span class="detail__value">Founder, Wexley Capital</span>
+                </div>
+                <div class="detail">
+                    <span class="detail__label">Experience</span>
+                    <span class="detail__value">12+ years (since 2014)</span>
+                </div>
+                <div class="detail">
+                    <span class="detail__label">Focus areas</span>
+                    <span class="detail__value">React, Python, Go, AWS, AI/ML</span>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><div class="divider__line"></div></div>
+
+    <!-- Work -->
+    <section id="work" class="work">
+        <div class="section-header reveal">
+            <span class="section-index">01</span>
+            <h2 class="section-title">Selected Work</h2>
+        </div>
+
+        <!-- Canary Care -->
+        <article class="work-entry reveal">
+            <div class="work-entry__header">
+                <div class="work-entry__meta">
+                    <span class="work-entry__period">2023 &mdash; Present</span>
+                    <span class="work-entry__type">Enterprise SaaS</span>
+                </div>
+                <h3 class="work-entry__title">Canary Care</h3>
+                <p class="work-entry__subtitle">Leading the modernization of a connected care platform serving 200+ UK facilities and 10,000+ elderly residents</p>
+            </div>
+            <div class="work-entry__body">
+                <div class="work-entry__narrative">
+                    <p>When I arrived at Canary Care, the organization was sitting on a complex, sprawling codebase reflecting
+                    nearly a decade of product evolution. The frontend was a hybrid of legacy PHP-rendered views layered
+                    with progressively-enhanced JavaScript. The backend was a patchwork of PHP microservices, Python services
+                    added organically, and infrastructure tightly coupled to Rackspace VMs with manual, error-prone deployments.
+                    As a health and safety company caring for vulnerable elderly residents, operational reliability wasn't
+                    optional &mdash; it was existential.</p>
+
+                    <p>I took ownership of the frontend-first modernization, migrating the build system from Webpack 4 to Vite
+                    (cutting hot module reload from 30+ seconds to near-instant), implementing Yarn Berry with Plug'n'Play
+                    dependency resolution, and establishing a containerized deployment model. The React migration itself reached
+                    Phase 9 completion &mdash; I documented and implemented 50+ endpoints across nine distinct phases, from
+                    authentication and system status through complex data aggregation to user management and hub configuration.
+                    The Python FastAPI backend I built for these endpoints delivered 3&ndash;72% performance improvements over
+                    legacy PHP, with reference data endpoints showing 70%+ speedup.</p>
+
+                    <p>The containerization initiative was the larger challenge. I conducted an audit revealing 18 distinct services
+                    (not the assumed 26), mapped every dependency, and created a phased approach. I wrote Dockerfiles with
+                    multi-stage builds optimized for production, a consolidated Azure DevOps pipeline building all backend
+                    images in parallel with multi-stage approval gates, and Terraform configurations for ECS task definitions
+                    with proper IAM role separation. By early 2026, 7 services were containerized, 2 were deployed to production
+                    on ECS, and 4 more were ready pending approvals &mdash; a clear path from fragile VMs to reproducible,
+                    auditable infrastructure.</p>
+
+                    <p>I led the response to a critical security incident where passwords were being logged unencrypted in Grafana.
+                    Within 30 minutes I traced the root cause to a specific PHP file, implemented a Grafana Alloy filter as
+                    immediate mitigation, then coordinated across team boundaries for a comprehensive multi-layer fix: Grafana
+                    filter, Apache filter, and PHP-level redaction. I also drove a systematic migration of hardcoded credentials
+                    to AWS Systems Manager Parameter Store, achieving 64% migration in the first month with database credentials
+                    at 100%.</p>
+
+                    <p>Across all this work, I created comprehensive observability infrastructure &mdash; Grafana dashboards tracking
+                    service versions, deployment history, and rollback capability. I consolidated 677 Confluence pages into
+                    searchable knowledge bases and maintained a tracking repository with 26 active operational scripts. This
+                    isn't just code modernization; it's a multi-dimensional transformation spanning frontend, backend, infrastructure,
+                    and organizational knowledge.</p>
+                </div>
+                <div class="work-entry__stats">
+                    <div class="stat-block">
+                        <span class="stat-block__value">374</span>
+                        <span class="stat-block__label">React components</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">50+</span>
+                        <span class="stat-block__label">endpoints migrated</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">18</span>
+                        <span class="stat-block__label">services containerized</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">10x</span>
+                        <span class="stat-block__label">faster builds (Vite)</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">677</span>
+                        <span class="stat-block__label">pages documented</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">258</span>
+                        <span class="stat-block__label">passing tests</span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-entry__tags">
+                <span>React</span><span>TypeScript</span><span>Docker</span><span>AWS ECS/ECR</span><span>Terraform</span><span>Vite</span><span>FastAPI</span><span>Python</span><span>Go</span><span>Grafana</span><span>Azure DevOps</span><span>Storybook</span>
+            </div>
+        </article>
+
+        <div class="divider divider--thin"><div class="divider__line"></div></div>
+
+        <!-- Wexley -->
+        <article class="work-entry reveal">
+            <div class="work-entry__header">
+                <div class="work-entry__meta">
+                    <span class="work-entry__period">2024 &mdash; Present</span>
+                    <span class="work-entry__type">Founder / Startup</span>
+                </div>
+                <h3 class="work-entry__title">Wexley Capital</h3>
+                <p class="work-entry__subtitle">Built the entire technical stack for a B2B lead generation and sales automation platform from scratch</p>
+            </div>
+            <div class="work-entry__body">
+                <div class="work-entry__narrative">
+                    <p>Wexley Capital is a B2B automation and lead generation platform I designed and built end-to-end.
+                    Registered as both a US LLC and UK Ltd, the business is currently in an advisory incubator program.
+                    The technical stack I created processes millions of contacts across disparate data sources, implements
+                    advanced browser automation, and combines AI-powered lead scoring with email verification at scale.</p>
+
+                    <p>The centrepiece is a unified BigQuery dataset of 162M+ deduplicated contacts from 7 sources including
+                    Pitchbook, Crunchbase, LinkedIn, and Apollo. I built the ETL pipelines, deduplication logic, and query
+                    infrastructure to make this data actionable. Sitting on top of that, the <strong>Lead Scorer</strong> uses
+                    a multi-model AI system with API key rotation across Gemini instances, scoring hundreds of thousands of
+                    records using ThreadPoolExecutor for parallel throughput of 100&ndash;200 operations per minute.</p>
+
+                    <p>The <strong>Apollo Scraper</strong> is the most technically complex piece &mdash; a three-tier extraction
+                    system. The primary tier uses direct HTTP requests via curl_cffi, reconstructing exact API request patterns
+                    including cryptographic transaction IDs and client hints, achieving 10&ndash;20x performance over browser
+                    automation. The fallback tier uses GoLogin + Playwright with injected JavaScript for tab visibility spoofing
+                    and DOM scraping. The orchestration tier coordinates parallel scrapes across multiple authenticated accounts
+                    with per-account locking, LRU selection, and automatic session refresh.</p>
+
+                    <p><strong>LinkZen</strong> is a full API product I built with PostgreSQL backend (6.8M exec records, 2.5M
+                    companies), rate limiting, API key management, and audit logging. It combines domain MX checking, team page
+                    crawling, LinkedIn public API scraping, and email verification via direct SMTP for Google/Microsoft plus
+                    Truelist API for other providers. A CSV folder watcher daemon monitors for new files, verifies email addresses,
+                    and streams results to the database with progress tracking.</p>
+
+                    <p><strong>XEngine</strong> automates Twitter/X engagement with a sophisticated HTTP API client that bypasses
+                    browser overhead entirely, reconstructing Twitter's exact request patterns. It runs as a Unix-style daemon
+                    via launchd with SQLite persistence, token bucket rate limiting, and persona-driven content generation
+                    using Claude for voice-matched tweets and contextual replies. The <strong>Sales Assistant</strong> provides
+                    structured discovery and objection-handling as a client-side SPA with 130+ categorized objection handlers
+                    and URL-routable content.</p>
+
+                    <p>The full platform connects data sourcing, AI scoring, email verification, outreach automation, and sales
+                    enablement into a cohesive pipeline. Each component was built to solve a real problem in the B2B sales
+                    workflow, not as theoretical exercises.</p>
+                </div>
+                <div class="work-entry__stats">
+                    <div class="stat-block">
+                        <span class="stat-block__value">162M</span>
+                        <span class="stat-block__label">unified leads</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">7</span>
+                        <span class="stat-block__label">data sources</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">6.8M</span>
+                        <span class="stat-block__label">verified execs</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">200+</span>
+                        <span class="stat-block__label">managed mailboxes</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">12+</span>
+                        <span class="stat-block__label">core products built</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">130+</span>
+                        <span class="stat-block__label">objection handlers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-entry__tags">
+                <span>Python</span><span>FastAPI</span><span>BigQuery</span><span>Playwright</span><span>PostgreSQL</span><span>GoLogin</span><span>curl_cffi</span><span>Gemini AI</span><span>Claude</span><span>Celery</span><span>SMTP</span><span>Vite</span>
+            </div>
+        </article>
+
+        <div class="divider divider--thin"><div class="divider__line"></div></div>
+
+        <!-- Infrastructure & Security -->
+        <article class="work-entry reveal">
+            <div class="work-entry__header">
+                <div class="work-entry__meta">
+                    <span class="work-entry__period">2024 &mdash; Present</span>
+                    <span class="work-entry__type">Infrastructure / Security</span>
+                </div>
+                <h3 class="work-entry__title">Infrastructure &amp; Security</h3>
+                <p class="work-entry__subtitle">Enterprise email systems, Microsoft 365 automation, vulnerability research, and data pipelines at scale</p>
+            </div>
+            <div class="work-entry__body">
+                <div class="work-entry__narrative">
+                    <p>I designed and built an email campaign platform managing 1,500+ sending accounts with a Django/Celery/Redis
+                    backend. The system handles sender reputation tracking, bounce processing, and field-level encryption using
+                    Fernet for credential storage. Deliverability across that many accounts requires understanding DNS
+                    (SPF, DKIM, DMARC), IP warming, and domain reputation at an operational level.</p>
+
+                    <p>For Microsoft 365, I automated tenant provisioning across 6+ tenants with 600+ managed identities. The
+                    orchestration system coordinates AdsPower browser profiles for sandboxed sessions, Porkbun/DreamHost APIs
+                    for automatic DNS TXT record verification, and PowerShell scripts for bulk user creation. A parallel
+                    factory runner handles multiple tenants simultaneously, tracking progress through an Excel-based order system.</p>
+
+                    <p>On the security research side, I used Shodan to discover vulnerable internet-facing systems including active
+                    crypto mining botnets, and responsibly disclosed findings to affected organizations. BigQuery pipelines
+                    I designed process 1B+ records with deduplication, industry classification, and filter management. The
+                    infrastructure spans multi-cloud deployments across Render, Fly.io, and Contabo, with Docker containerization,
+                    health checks, and automated rollback procedures.</p>
+
+                    <p>I also built a distributed cryptographic computation framework that fragments sensitive algorithms across 4
+                    geographically distributed VPS nodes using Shamir (3,4) threshold secret sharing. The system uses a WireGuard
+                    mesh network with AES-256-GCM session keys, Ed25519 signature authentication, and nonce-based replay
+                    protection. Compromising any 2 of 4 nodes (across Hetzner, DigitalOcean, Vultr, and Contabo) still leaves
+                    the system secure &mdash; genuine information-theoretic security, not just operational security.</p>
+                </div>
+                <div class="work-entry__stats">
+                    <div class="stat-block">
+                        <span class="stat-block__value">1.5K</span>
+                        <span class="stat-block__label">email accounts</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">1B+</span>
+                        <span class="stat-block__label">records processed</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">600+</span>
+                        <span class="stat-block__label">managed identities</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-block__value">4</span>
+                        <span class="stat-block__label">distributed nodes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-entry__tags">
+                <span>Django</span><span>Celery</span><span>Docker</span><span>Shodan</span><span>BigQuery</span><span>WireGuard</span><span>Shamir SSS</span><span>M365/Entra</span><span>PowerShell</span><span>Fernet</span>
+            </div>
+        </article>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><div class="divider__line"></div></div>
+
+    <!-- Earlier Career Timeline -->
+    <section id="earlier" class="timeline">
+        <div class="section-header reveal">
+            <span class="section-index">02</span>
+            <h2 class="section-title">Earlier Career</h2>
+            <p class="section-desc">A decade of building products across sports tech, affiliate marketing, ecommerce, and freelance consulting.</p>
+        </div>
+
+        <div class="timeline__grid reveal">
+            <div class="timeline__entry">
+                <span class="timeline__period">2019 &mdash; 2020</span>
+                <div class="timeline__content">
+                    <h4>Eight</h4>
+                    <span class="timeline__role">Full-Stack Developer</span>
+                    <p>Ecommerce startup building Shopify tools. Developed the Shopify Bundle Builder app from scratch,
+                    enabling merchants to create custom product bundles. Built with the Shopify API, Liquid templating,
+                    and a Node.js backend. Worked in a fast-paced startup environment where shipping quickly and
+                    iterating on user feedback were the primary concerns.</p>
+                </div>
+            </div>
+            <div class="timeline__entry">
+                <span class="timeline__period">2015 &mdash; 2019</span>
+                <div class="timeline__content">
+                    <h4>PerformanceIN</h4>
+                    <span class="timeline__role">Developer / Technical Lead</span>
+                    <p>The home of performance marketing. Built and maintained the platform powering the Performance
+                    Marketing Awards &mdash; the industry's largest awards programme. Django-based CMS with a
+                    custom nominations and judging workflow system. Handled SEO optimization, responsive redesigns,
+                    and the technical infrastructure for high-traffic event pages and industry publications.</p>
+                </div>
+            </div>
+            <div class="timeline__entry">
+                <span class="timeline__period">2014 &mdash; 2018</span>
+                <div class="timeline__content">
+                    <h4>Arena100</h4>
+                    <span class="timeline__role">Lead Developer</span>
+                    <p>Sports and fitness brand platform. Built the core web application using Django and React,
+                    including user profiles, content management, and community features. First professional role
+                    where I owned the full stack from database design to frontend delivery, establishing the
+                    working patterns I still use today.</p>
+                </div>
+            </div>
+            <div class="timeline__entry">
+                <span class="timeline__period">2014 &mdash; Present</span>
+                <div class="timeline__content">
+                    <h4>Freelance &amp; Consulting</h4>
+                    <span class="timeline__role">Independent</span>
+                    <p>Autonomous website creation, PDF chatbot tools, and technical consulting for small businesses.
+                    Maintaining an independent practice alongside employment has kept me building across different
+                    problem domains, from document processing to conversational AI, always learning whatever
+                    technology the problem demands.</p>
+                </div>
+            </div>
+            <div class="timeline__entry">
+                <span class="timeline__period">2016 &mdash; 2017</span>
+                <div class="timeline__content">
+                    <h4>Sadhana Forest, Kenya</h4>
+                    <span class="timeline__role">Volunteer</span>
+                    <p>Reforestation volunteer in coastal Kenya. A year spent away from screens, working with local
+                    communities on environmental restoration. This experience fundamentally shaped how I think about
+                    systems &mdash; ecological and technical alike &mdash; and reminded me that the most important
+                    work serves people beyond yourself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><div class="divider__line"></div></div>
+
+    <!-- Lab / Experimental -->
+    <section id="lab" class="lab">
+        <div class="section-header reveal">
+            <span class="section-index">03</span>
+            <h2 class="section-title">The Lab</h2>
+            <p class="section-desc">Research projects, experiments, and tools. Where curiosity drives engineering.</p>
+        </div>
+
+        <div class="lab__grid">
+            <article class="lab__card lab__card--featured reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">AI / Real-time Systems</span>
+                    <h3>MeetX</h3>
+                    <p>A real-time sales coaching platform that combines DeepGram WebSocket transcription (Nova-2 model,
+                    16kHz PCM streaming) with a LangChain RAG system backed by ChromaDB. The system maintains contextual
+                    CARPET state (Challenge, Approve, Realize, Position, Establish, Take-away), detects objection types
+                    mid-conversation, and uses semantic search to surface the exact sales template that matches &mdash;
+                    all with sub-2-second latency. Architectured for Phase 2 microservices separation with service-level
+                    health monitoring for each component.</p>
+                    <div class="lab__tags">
+                        <span>DeepGram</span><span>LangChain</span><span>ChromaDB</span><span>WebSocket</span><span>Python</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Physics Research</span>
+                    <h3>Geometric Unity Engine</h3>
+                    <p>A computational physics framework that predicts particle masses through geometric matrix transformations.
+                    Uses a unified 4x4 engine with topological quantum numbers and SU(2) gauge transformations. Achieves
+                    0.000% error on the Koide formula for lepton mass ratios, with 100% success rate across 10+ particle
+                    families &mdash; probability &lt;10^-50 if random. 100+ analysis scripts, cross-family predictions that
+                    outperform curve-fitting.</p>
+                    <div class="lab__tags">
+                        <span>NumPy</span><span>SciPy</span><span>QFT</span><span>Topology</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Market Intelligence</span>
+                    <h3>News Signal Engine</h3>
+                    <p>Monitors 4K&ndash;7K daily regulatory changes, funding rounds, and industry signals globally.
+                    Uses Groq's Llama-3.1-70B to score each signal for financing intent &mdash; understanding context
+                    like "new emissions rule" implies "unplanned capex" implies "refinancing lead." Filters to
+                    150&ndash;600 actionable leads per vertical per day. Cost: $0 to start, &lt;$45/month scaled.</p>
+                    <div class="lab__tags">
+                        <span>Groq</span><span>Llama 3.1</span><span>NewsData.io</span><span>Regulations.gov</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Data Visualization</span>
+                    <h3>The Hyperlinked Bible</h3>
+                    <p>An interactive D3.js visualization of the Bible's 31,000+ verses as a hierarchical grid where
+                    position encodes book/chapter structure and colour encodes cross-reference density. 14MB parsed dataset,
+                    async image tooltips from bible.art, local storage for session persistence. Solving the hard UX
+                    problem: how to show 31,000 nodes without crashing the browser.</p>
+                    <div class="lab__tags">
+                        <span>D3.js</span><span>SVG</span><span>Data Viz</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Distributed Security</span>
+                    <h3>Ultra-Secure API</h3>
+                    <p>A deployment framework that splits sensitive computation across 4 geographically distributed nodes
+                    using Shamir (3,4) threshold cryptography. WireGuard mesh with AES-256-GCM, Ed25519 authentication,
+                    nonce-based replay protection. No single node &mdash; or even two &mdash; can reconstruct the algorithm.
+                    Information-theoretic security at $11/month.</p>
+                    <div class="lab__tags">
+                        <span>Shamir SSS</span><span>WireGuard</span><span>Ed25519</span><span>Python</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Voice AI</span>
+                    <h3>Interview System</h3>
+                    <p>AI phone interview platform built on Vapi. Django + Celery backend handles scheduled callbacks,
+                    call lifecycle, transcription, and multi-assistant routing. Async task processing with JSON
+                    serialization enables hundreds of concurrent interviews without blocking.</p>
+                    <div class="lab__tags">
+                        <span>Vapi</span><span>Django</span><span>Celery</span><span>Python</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">NLP / Email</span>
+                    <h3>Unibox &amp; Charizard</h3>
+                    <p>Distributed email verification and AI reply classification pipeline. Playwright-based automation
+                    with intelligent CSV chunking, parallel verification runs, and LLM-powered response categorization.
+                    BigQuery integration for metadata analysis with GDELT event extraction and readability scoring.</p>
+                    <div class="lab__tags">
+                        <span>Playwright</span><span>LLM</span><span>BigQuery</span><span>NLP</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Multi-Agent Systems</span>
+                    <h3>Agent Workspace</h3>
+                    <p>A framework for autonomous agent orchestration with a manager agent coordinating specialist workers.
+                    Docker support for containerized environments, OAuth token portability across distributed agents,
+                    and state synchronization protocols. Built to explore how AI agents can collaborate on complex tasks.</p>
+                    <div class="lab__tags">
+                        <span>Python</span><span>Docker</span><span>OAuth</span><span>Agents</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lab__card reveal">
+                <div class="lab__card-inner">
+                    <span class="lab__category">Game Development</span>
+                    <h3>World Game</h3>
+                    <p>Strategic game engine with hierarchical level structure, real-time state management, and game
+                    simulation logic. Modular architecture with separated game logic, UI, and state layers.</p>
+                    <div class="lab__tags">
+                        <span>JavaScript</span><span>Game Engine</span><span>State Machines</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><div class="divider__line"></div></div>
+
+    <!-- Skills -->
+    <section class="stack">
+        <div class="section-header reveal">
+            <span class="section-index">04</span>
+            <h2 class="section-title">Technical Stack</h2>
+        </div>
+
+        <div class="stack__grid reveal">
+            <div class="stack__column">
+                <h4 class="stack__heading">Frontend</h4>
+                <ul class="stack__list">
+                    <li>React 18 / TypeScript</li>
+                    <li>Vite / Webpack</li>
+                    <li>D3.js / Data Viz</li>
+                    <li>Styled Components</li>
+                    <li>Storybook 9</li>
+                    <li>Shopify / Liquid</li>
+                    <li>Jest / Cypress</li>
+                </ul>
+            </div>
+            <div class="stack__column">
+                <h4 class="stack__heading">Backend</h4>
+                <ul class="stack__list">
+                    <li>Python / Django / FastAPI</li>
+                    <li>Node.js / Express</li>
+                    <li>Go (microservices)</li>
+                    <li>PHP (modernization)</li>
+                    <li>Celery / Redis</li>
+                    <li>PostgreSQL / BigQuery</li>
+                    <li>REST / GraphQL</li>
+                </ul>
+            </div>
+            <div class="stack__column">
+                <h4 class="stack__heading">Infrastructure</h4>
+                <ul class="stack__list">
+                    <li>AWS (ECS, RDS, ECR, SSM)</li>
+                    <li>Docker / Containerization</li>
+                    <li>Terraform / Ansible</li>
+                    <li>CI/CD (Azure DevOps)</li>
+                    <li>Grafana / Loki / Prometheus</li>
+                    <li>WireGuard / Mesh Networks</li>
+                    <li>Multi-cloud (Render, Fly, Contabo)</li>
+                </ul>
+            </div>
+            <div class="stack__column">
+                <h4 class="stack__heading">AI &amp; Security</h4>
+                <ul class="stack__list">
+                    <li>OpenAI / Claude / Groq / Gemini</li>
+                    <li>LangChain / RAG / ChromaDB</li>
+                    <li>DeepGram / Vapi (voice AI)</li>
+                    <li>Shamir SSS / Ed25519</li>
+                    <li>Shodan / Vuln research</li>
+                    <li>AWS SSM / Fernet encryption</li>
+                    <li>Browser fingerprinting / anti-detection</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"><div class="divider__line"></div></div>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="contact__inner reveal">
+            <span class="section-index">05</span>
+            <h2 class="contact__heading">Let's build<br>something great.</h2>
+            <p class="contact__body">Open to ambitious roles, consulting engagements, and technical partnerships.
+            Currently based in Somerset, UK.</p>
+            <div class="contact__links">
+                <a href="mailto:tomyates@canarycare.co.uk" class="contact__link">
+                    <span class="contact__link-label">Email</span>
+                    <span class="contact__link-value">tomyates@canarycare.co.uk</span>
+                </a>
+                <a href="https://github.com/otherland" class="contact__link">
+                    <span class="contact__link-label">GitHub</span>
+                    <span class="contact__link-value">@otherland</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <span>&copy; 2026 Tom Yates</span>
+            <span>Somerset, UK</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
