@@ -1,88 +1,85 @@
-// ============================================
-// THE ARCHITECT'S FOLIO - Interactions
-// ============================================
-
+// LIGHT BRUTALISM + RUST ACCENT
 (function () {
     'use strict';
 
-    // Nav scroll behavior
-    const nav = document.getElementById('nav');
+    // SECTION NAVIGATION
+    const navButtons = document.querySelectorAll('.nav__btn');
+    const sections = document.querySelectorAll('.section');
 
-    window.addEventListener('scroll', function () {
-        const scrollY = window.scrollY;
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetSection = button.getAttribute('data-section');
 
-        if (scrollY > 80) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    }, { passive: true });
+            // Hide all sections
+            sections.forEach(section => {
+                section.hidden = true;
+            });
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            var href = this.getAttribute('href');
-            if (href.length > 1) {
-                e.preventDefault();
-                var target = document.querySelector(href);
-                if (target) {
-                    var offset = target.getBoundingClientRect().top + window.scrollY - 100;
-                    window.scrollTo({ top: offset, behavior: 'smooth' });
+            // Show target section
+            const activeSection = document.querySelector(`.section[data-section="${targetSection}"]`);
+            if (activeSection) {
+                activeSection.hidden = false;
+            }
+
+            // Update active button
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Close all projects when switching sections
+            document.querySelectorAll('.project').forEach(project => {
+                project.removeAttribute('open');
+                project.querySelector('.project__content').hidden = true;
+            });
+
+            // Scroll main content to top
+            document.querySelector('.main').scrollTop = 0;
+        });
+    });
+
+    // WORK CARD COLLAPSE/EXPAND
+    const projectToggles = document.querySelectorAll('.project__toggle');
+
+    projectToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const project = toggle.closest('.project');
+            const content = project.querySelector('.project__content');
+            const isOpen = project.hasAttribute('open');
+
+            // Close all other projects
+            document.querySelectorAll('.project').forEach(p => {
+                if (p !== project) {
+                    p.removeAttribute('open');
+                    p.querySelector('.project__content').hidden = true;
                 }
+            });
+
+            // Toggle current project
+            if (isOpen) {
+                project.removeAttribute('open');
+                content.hidden = true;
+            } else {
+                project.setAttribute('open', '');
+                content.hidden = false;
             }
         });
     });
 
-    // Reveal on scroll (IntersectionObserver)
-    if ('IntersectionObserver' in window) {
-        var revealElements = document.querySelectorAll('.reveal');
-
-        var revealObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -60px 0px'
-        });
-
-        // Observe reveal elements, skip children of stagger containers
-        revealElements.forEach(function (el) {
-            if (!el.closest('.lab__grid') && !el.closest('.timeline__grid')) {
-                revealObserver.observe(el);
+    // KEYBOARD NAVIGATION: w=work, e=earlier, l=lab, c=contact
+    document.addEventListener('keydown', (e) => {
+        if (e.target === document.body || e.target === document.documentElement) {
+            const keyMap = { 'w': 'work', 'e': 'earlier', 'l': 'lab', 'c': 'contact' };
+            if (keyMap[e.key.toLowerCase()]) {
+                e.preventDefault();
+                const button = document.querySelector(`.nav__btn[data-section="${keyMap[e.key.toLowerCase()]}"]`);
+                if (button) button.click();
             }
-        });
+        }
+    });
 
-        // Staggered reveal for grid children (lab cards, timeline entries)
-        var gridObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    var items = entry.target.querySelectorAll('.reveal');
-                    Array.prototype.forEach.call(items, function (item, i) {
-                        setTimeout(function () {
-                            item.classList.add('visible');
-                        }, i * 80);
-                    });
-                    gridObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.05,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        document.querySelectorAll('.lab__grid, .timeline__grid').forEach(function (el) {
-            gridObserver.observe(el);
-        });
-
-    } else {
-        // Fallback: just show everything
-        document.querySelectorAll('.reveal').forEach(function (el) {
-            el.classList.add('visible');
-        });
+    // Set initial active section (work)
+    const workButton = document.querySelector('.nav__btn[data-section="work"]');
+    if (workButton) {
+        workButton.click();
     }
 
 })();
