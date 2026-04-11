@@ -56,6 +56,23 @@
             }
         });
 
+        // Section title underline animation
+        var titleObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    titleObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -80px 0px'
+        });
+
+        document.querySelectorAll('.section-title').forEach(function (el) {
+            titleObserver.observe(el);
+        });
+
         // Staggered reveal for grid children (lab cards, timeline entries)
         var gridObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
