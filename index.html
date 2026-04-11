@@ -7,7 +7,7 @@
     <meta name="description" content="Tom Yates — full-stack engineer with 12+ years experience.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -58,162 +58,186 @@
 
         <!-- WORK SECTION -->
         <section class="section" data-section="work">
-            <h2 class="section__title">SELECTED WORK</h2>
+            <h2 class="section__title">Selected Work</h2>
 
             <!-- CANARY CARE -->
             <article class="project">
-                <h3 class="project__name">CANARY CARE</h3>
-                <p class="project__subtitle">Enterprise SaaS Modernization</p>
-
-                <div class="project__block">
-                    <h4 class="block__title">THE SITUATION</h4>
-                    <p>Legacy PHP stack with critical health & safety requirements. 200+ UK care facilities depend on this platform to monitor 10,000+ elderly residents. Reliability is everything — downtime = care gaps.</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">WHAT I BUILT</h4>
-                    <ul class="block__list">
-                        <li><strong>Frontend modernization:</strong> Migrated Webpack 4 → Vite (30s reload → instant), implemented Yarn Berry, built 50+ React endpoints</li>
-                        <li><strong>Backend optimization:</strong> Python FastAPI layer delivering 3–72% perf improvements over legacy PHP</li>
-                        <li><strong>Infrastructure:</strong> Audited 18 containerized services, wrote Dockerfiles, orchestrated Azure DevOps multi-stage pipeline, Terraform ECS configs</li>
-                        <li><strong>Security:</strong> Resolved unencrypted password logging incident in 30 min, migrated 64% of credentials to AWS SSM</li>
-                    </ul>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">IMPACT</h4>
-                    <div class="metrics">
-                        <div class="metric">374 <span class="metric__label">React components</span></div>
-                        <div class="metric">50+ <span class="metric__label">endpoints migrated</span></div>
-                        <div class="metric">10x <span class="metric__label">faster builds</span></div>
-                        <div class="metric">18 <span class="metric__label">services live</span></div>
+                <button class="project__toggle">
+                    <span class="project__emoji">💼</span>
+                    <div class="project__header">
+                        <h3 class="project__name">Canary Care</h3>
+                        <p class="project__subtitle">Enterprise SaaS Modernization</p>
                     </div>
-                </div>
+                    <span class="project__icon">+</span>
+                </button>
 
-                <div class="project__block">
-                    <h4 class="block__title">TECH STACK</h4>
-                    <div class="tech">React | TypeScript | Docker | AWS ECS | Terraform | FastAPI | Python | Go</div>
+                <div class="project__content" hidden>
+                    <div class="project__block">
+                        <h4 class="block__title">The Situation</h4>
+                        <p>Legacy PHP stack with critical health & safety requirements. 200+ UK care facilities depend on this platform to monitor 10,000+ elderly residents. Reliability is everything — downtime = care gaps.</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">What I Built</h4>
+                        <ul class="block__list">
+                            <li><strong>Frontend modernization:</strong> Migrated Webpack 4 → Vite (30s reload → instant), implemented Yarn Berry, built 50+ React endpoints</li>
+                            <li><strong>Backend optimization:</strong> Python FastAPI layer delivering 3–72% perf improvements over legacy PHP</li>
+                            <li><strong>Infrastructure:</strong> Audited 18 containerized services, wrote Dockerfiles, orchestrated Azure DevOps multi-stage pipeline, Terraform ECS configs</li>
+                            <li><strong>Security:</strong> Resolved unencrypted password logging incident in 30 min, migrated 64% of credentials to AWS SSM</li>
+                        </ul>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Impact</h4>
+                        <div class="metrics">
+                            <div class="metric">374 <span class="metric__label">React components</span></div>
+                            <div class="metric">50+ <span class="metric__label">endpoints migrated</span></div>
+                            <div class="metric">10x <span class="metric__label">faster builds</span></div>
+                            <div class="metric">18 <span class="metric__label">services live</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Tech Stack</h4>
+                        <div class="tech">React | TypeScript | Docker | AWS ECS | Terraform | FastAPI | Python | Go</div>
+                    </div>
                 </div>
             </article>
 
             <!-- WEXLEY CAPITAL -->
             <article class="project">
-                <h3 class="project__name">WEXLEY CAPITAL</h3>
-                <p class="project__subtitle">B2B Automation Platform (Founder)</p>
-
-                <div class="project__block">
-                    <h4 class="block__title">THE PROBLEM</h4>
-                    <p>B2B sales teams spend days on manual prospecting, data enrichment, and outreach. No unified lead database. No intelligent scoring. No automation.</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">THE SOLUTION</h4>
-                    <ul class="block__list">
-                        <li><strong>Data Pipeline:</strong> Unified BigQuery dataset (162M+ deduplicated contacts from 7 sources: Pitchbook, Crunchbase, LinkedIn, Apollo, etc.)</li>
-                        <li><strong>Lead Scoring:</strong> Multi-model AI system using Gemini with API key rotation, scoring 100–200 records/min with ThreadPoolExecutor</li>
-                        <li><strong>Apollo Scraper:</strong> 3-tier extraction (direct HTTP → Playwright fallback). 10–20x faster than browser automation via reconstructed request patterns</li>
-                        <li><strong>LinkZen API:</strong> PostgreSQL backend (6.8M execs, 2.5M companies), email verification, domain MX checking, LinkedIn enrichment</li>
-                        <li><strong>XEngine:</strong> Twitter/X automation daemon, reconstructing exact API patterns, SQLite persistence, persona-driven content generation</li>
-                        <li><strong>Email Ops:</strong> 200+ managed mailboxes, SMTP verification, bounce processing, sender reputation tracking</li>
-                    </ul>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">KEY METRICS</h4>
-                    <div class="metrics">
-                        <div class="metric">162M+ <span class="metric__label">unified leads</span></div>
-                        <div class="metric">7 <span class="metric__label">data sources</span></div>
-                        <div class="metric">6.8M <span class="metric__label">verified execs</span></div>
-                        <div class="metric">200+ <span class="metric__label">mailboxes</span></div>
+                <button class="project__toggle">
+                    <span class="project__emoji">📈</span>
+                    <div class="project__header">
+                        <h3 class="project__name">Wexley Capital</h3>
+                        <p class="project__subtitle">B2B Automation Platform (Founder)</p>
                     </div>
-                </div>
+                    <span class="project__icon">+</span>
+                </button>
 
-                <div class="project__block">
-                    <h4 class="block__title">TECH STACK</h4>
-                    <div class="tech">Python | FastAPI | BigQuery | PostgreSQL | Playwright | Gemini AI | Celery | SMTP</div>
+                <div class="project__content" hidden>
+                    <div class="project__block">
+                        <h4 class="block__title">The Problem</h4>
+                        <p>B2B sales teams spend days on manual prospecting, data enrichment, and outreach. No unified lead database. No intelligent scoring. No automation.</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">The Solution</h4>
+                        <ul class="block__list">
+                            <li><strong>Data Pipeline:</strong> Unified BigQuery dataset (162M+ deduplicated contacts from 7 sources: Pitchbook, Crunchbase, LinkedIn, Apollo, etc.)</li>
+                            <li><strong>Lead Scoring:</strong> Multi-model AI system using Gemini with API key rotation, scoring 100–200 records/min with ThreadPoolExecutor</li>
+                            <li><strong>Apollo Scraper:</strong> 3-tier extraction (direct HTTP → Playwright fallback). 10–20x faster than browser automation via reconstructed request patterns</li>
+                            <li><strong>LinkZen API:</strong> PostgreSQL backend (6.8M execs, 2.5M companies), email verification, domain MX checking, LinkedIn enrichment</li>
+                            <li><strong>XEngine:</strong> Twitter/X automation daemon, reconstructing exact API patterns, SQLite persistence, persona-driven content generation</li>
+                            <li><strong>Email Ops:</strong> 200+ managed mailboxes, SMTP verification, bounce processing, sender reputation tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Key Metrics</h4>
+                        <div class="metrics">
+                            <div class="metric">162M+ <span class="metric__label">unified leads</span></div>
+                            <div class="metric">7 <span class="metric__label">data sources</span></div>
+                            <div class="metric">6.8M <span class="metric__label">verified execs</span></div>
+                            <div class="metric">200+ <span class="metric__label">mailboxes</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Tech Stack</h4>
+                        <div class="tech">Python | FastAPI | BigQuery | PostgreSQL | Playwright | Gemini AI | Celery | SMTP</div>
+                    </div>
                 </div>
             </article>
 
             <!-- WEXLEY LABS -->
             <article class="project">
-                <h3 class="project__name">WEXLEY LABS</h3>
-                <p class="project__subtitle">Infrastructure & Security Consultancy</p>
-
-                <div class="project__block">
-                    <h4 class="block__title">EMAIL CAMPAIGN PLATFORM</h4>
-                    <p>Django/Celery/Redis backend managing 1,500+ sending accounts. Handles sender reputation, bounce processing, field-level encryption (Fernet).</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">MICROSOFT 365 AUTOMATION</h4>
-                    <p>Automated tenant provisioning across 6+ tenants with 600+ managed identities. Coordinated sandboxed browser profiles, DNS TXT verification, bulk user creation.</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">SECURITY RESEARCH</h4>
-                    <p>Used Shodan to identify vulnerable internet-facing systems. BigQuery pipelines processing 1B+ records with deduplication, classification, filter management.</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">DISTRIBUTED CRYPTOGRAPHY</h4>
-                    <p>Framework splitting sensitive computation across 4 geographically distributed nodes using Shamir (3,4) threshold secret sharing. WireGuard mesh, AES-256-GCM, Ed25519 auth. Information-theoretic security at $11/month.</p>
-                </div>
-
-                <div class="project__block">
-                    <h4 class="block__title">SCALE</h4>
-                    <div class="metrics">
-                        <div class="metric">1.5K <span class="metric__label">email accounts</span></div>
-                        <div class="metric">1B+ <span class="metric__label">records processed</span></div>
-                        <div class="metric">600+ <span class="metric__label">managed identities</span></div>
-                        <div class="metric">4 <span class="metric__label">distributed nodes</span></div>
+                <button class="project__toggle">
+                    <span class="project__emoji">🔒</span>
+                    <div class="project__header">
+                        <h3 class="project__name">Wexley Labs</h3>
+                        <p class="project__subtitle">Infrastructure & Security Consultancy</p>
                     </div>
-                </div>
+                    <span class="project__icon">+</span>
+                </button>
 
-                <div class="project__block">
-                    <h4 class="block__title">TECH STACK</h4>
-                    <div class="tech">Django | Celery | M365/Entra | BigQuery | WireGuard | Shamir SSS | Docker | Shodan</div>
+                <div class="project__content" hidden>
+                    <div class="project__block">
+                        <h4 class="block__title">Email Campaign Platform</h4>
+                        <p>Django/Celery/Redis backend managing 1,500+ sending accounts. Handles sender reputation, bounce processing, field-level encryption (Fernet).</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Microsoft 365 Automation</h4>
+                        <p>Automated tenant provisioning across 6+ tenants with 600+ managed identities. Coordinated sandboxed browser profiles, DNS TXT verification, bulk user creation.</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Security Research</h4>
+                        <p>Used Shodan to identify vulnerable internet-facing systems. BigQuery pipelines processing 1B+ records with deduplication, classification, filter management.</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Distributed Cryptography</h4>
+                        <p>Framework splitting sensitive computation across 4 geographically distributed nodes using Shamir (3,4) threshold secret sharing. WireGuard mesh, AES-256-GCM, Ed25519 auth. Information-theoretic security at $11/month.</p>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Scale</h4>
+                        <div class="metrics">
+                            <div class="metric">1.5K <span class="metric__label">email accounts</span></div>
+                            <div class="metric">1B+ <span class="metric__label">records processed</span></div>
+                            <div class="metric">600+ <span class="metric__label">managed identities</span></div>
+                            <div class="metric">4 <span class="metric__label">distributed nodes</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project__block">
+                        <h4 class="block__title">Tech Stack</h4>
+                        <div class="tech">Django | Celery | M365/Entra | BigQuery | WireGuard | Shamir SSS | Docker | Shodan</div>
+                    </div>
                 </div>
             </article>
         </section>
 
         <!-- CAREER SECTION -->
         <section class="section" data-section="earlier" hidden>
-            <h2 class="section__title">EARLIER CAREER</h2>
+            <h2 class="section__title">Earlier Career</h2>
             <p class="section__intro">A decade building products across sports tech, affiliate marketing, ecommerce, and consulting.</p>
 
             <div class="timeline">
                 <div class="timeline__item">
-                    <h4>EIGHT</h4>
+                    <h4>Eight</h4>
                     <p class="meta">Jan 2019 — Oct 2020 | Bristol, UK</p>
                     <p>Built Shopify apps for product bundling (Bundle Builder). Owned pricing, discounts, error reporting. Small team, shipped fast, talked to users weekly.</p>
                 </div>
 
                 <div class="timeline__item">
-                    <h4>PERFORMANCEIN</h4>
+                    <h4>PerformanceIN</h4>
                     <p class="meta">Apr 2015 — Jan 2019 | Bristol, UK</p>
                     <p>Django sites with strong SEO/UX. Powered Performance Marketing Awards (industry's biggest awards program). Integrated Salesforce Pardot. Built event badge printing with Zebra printer PDL. Full DevOps: Ubuntu, Nginx, Supervisor.</p>
                 </div>
 
                 <div class="timeline__item">
-                    <h4>ARENA100</h4>
+                    <h4>Arena100</h4>
                     <p class="meta">Oct 2014 — Oct 2018 | London</p>
                     <p>Led development of large Django app for sports/fitness brand. Extended Mezzanine CMS, integrated Shopify ecommerce, built React booking system, wired APIs with Django Rest Framework. First full-stack role.</p>
                 </div>
 
                 <div class="timeline__item">
-                    <h4>FREELANCE & CONSULTING</h4>
+                    <h4>Freelance & Consulting</h4>
                     <p class="meta">2014 — Present</p>
                     <p>Autonomous website creator (SEO keyword research + article generation). PDF chatbot with NLP (SpaCy, Wordnet, OpenAI). Continuous independent work alongside employment.</p>
                 </div>
 
                 <div class="timeline__item">
-                    <h4>SADHANA FOREST, KENYA</h4>
+                    <h4>Sadhana Forest, Kenya</h4>
                     <p class="meta">Dec 2016 — Feb 2017</p>
                     <p>Reforestation volunteer. Planting, water conservation, food diversification with local communities using permaculture. Changed how I think about interconnected systems.</p>
                 </div>
 
                 <div class="timeline__item">
-                    <h4>ALEXANDER TECHNIQUE</h4>
+                    <h4>Alexander Technique</h4>
                     <p class="meta">2012 — 2016</p>
                     <p>4-year professional teaching qualification in posture & movement. Taught me holistic thinking — habits I still use in engineering.</p>
                 </div>
@@ -222,42 +246,42 @@
 
         <!-- LAB SECTION -->
         <section class="section" data-section="lab" hidden>
-            <h2 class="section__title">THE LAB</h2>
+            <h2 class="section__title">The Lab</h2>
             <p class="section__intro">Side projects and research.</p>
 
             <div class="lab">
                 <div class="lab__card">
-                    <h4>MEETX</h4>
+                    <h4>MeetX</h4>
                     <p>Real-time sales coaching with DeepGram transcription + LangChain RAG. CARPET state tracking, objection detection, <2s latency.</p>
                     <div class="tags">DeepGram | LangChain | WebSocket</div>
                 </div>
 
                 <div class="lab__card">
-                    <h4>GEOMETRIC UNITY ENGINE</h4>
+                    <h4>Geometric Unity Engine</h4>
                     <p>Computational physics framework predicting particle masses. 0.000% error on Koide formula, 100% success across 10+ families.</p>
                     <div class="tags">NumPy | SciPy | QFT</div>
                 </div>
 
                 <div class="lab__card">
-                    <h4>NEWS SIGNAL ENGINE</h4>
+                    <h4>News Signal Engine</h4>
                     <p>Monitors 4K–7K daily regulatory changes, funding rounds. Llama-3.1-70B scoring for financing intent. 150–600 leads/day per vertical.</p>
                     <div class="tags">Groq | NewsData.io | Regulations.gov</div>
                 </div>
 
                 <div class="lab__card">
-                    <h4>HYPERLINKED BIBLE</h4>
+                    <h4>Hyperlinked Bible</h4>
                     <p>Interactive D3.js visualization of 31,000+ verses. Position encodes structure, color encodes density. 14MB dataset, async tooltips.</p>
                     <div class="tags">D3.js | SVG | Data Viz</div>
                 </div>
 
                 <div class="lab__card">
-                    <h4>ULTRA-SECURE API</h4>
+                    <h4>Ultra-Secure API</h4>
                     <p>Distributes computation across 4 nodes using Shamir (3,4). WireGuard mesh, AES-256-GCM, Ed25519. $11/month information-theoretic security.</p>
                     <div class="tags">WireGuard | Shamir SSS | Cryptography</div>
                 </div>
 
                 <div class="lab__card">
-                    <h4>INTERVIEW SYSTEM</h4>
+                    <h4>Interview System</h4>
                     <p>AI phone interview platform on Vapi. Django + Celery backend. Handles hundreds of concurrent interviews with async processing.</p>
                     <div class="tags">Vapi | Django | Celery</div>
                 </div>
@@ -266,7 +290,7 @@
 
         <!-- CONTACT SECTION -->
         <section class="section" data-section="contact" hidden>
-            <h2 class="section__title">GET IN TOUCH</h2>
+            <h2 class="section__title">Get in Touch</h2>
             <p class="section__intro">Open to interesting work — full-time, contract, or consulting.</p>
 
             <div class="contact">
