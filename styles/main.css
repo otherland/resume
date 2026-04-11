@@ -32,8 +32,9 @@
     --secondary: #FFB800;
     --secondary-dim: rgba(255, 184, 0, 0.08);
 
-    /* Typography — technical aesthetic */
-    --serif: 'IBM Plex Mono', 'Courier Prime', monospace;
+    /* Typography — editorial with technical credibility */
+    --display: 'Playfair Display', Georgia, serif;
+    --serif: 'Crimson Text', Georgia, serif;
     --sans: 'Outfit', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', 'SF Mono', monospace;
 
@@ -144,9 +145,9 @@ body::before {
 
 .nav.scrolled {
     padding: 14px 0;
-    background: rgba(244, 243, 238, 0.92);
+    background: rgba(15, 14, 12, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-accent);
 }
 
 .nav__inner {
@@ -159,14 +160,19 @@ body::before {
 }
 
 .nav__logo {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 26px;
-    color: var(--accent);
+    font-weight: 700;
+    color: var(--text);
     letter-spacing: -0.02em;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
 }
 
-.nav__logo:hover { opacity: 0.7; }
+.nav__logo:hover { color: var(--accent); }
+
+.nav.scrolled .nav__logo {
+    color: var(--accent);
+}
 
 .nav__links {
     display: flex;
@@ -381,13 +387,14 @@ body::before {
 }
 
 .section-title {
-    font-family: var(--serif);
-    font-size: clamp(34px, 5vw, 52px);
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-family: var(--display);
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
     color: var(--text);
     position: relative;
     display: inline-block;
+    line-height: 1.1;
 }
 
 .section-title::after {
@@ -459,19 +466,21 @@ body::before {
 
 .about__lead {
     font-family: var(--serif);
-    font-size: clamp(22px, 2.5vw, 27px);
-    line-height: 1.45;
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 400;
+    line-height: 1.55;
     color: var(--text);
     margin-bottom: 28px;
     letter-spacing: -0.01em;
-    max-width: 580px;
+    max-width: 680px;
 }
 
 .about__body {
-    font-size: 16px;
+    font-family: var(--serif);
+    font-size: 17px;
     color: var(--text-secondary);
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .about__details {
@@ -557,12 +566,13 @@ body::before {
 }
 
 .work-entry__title {
-    font-family: var(--serif);
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-family: var(--display);
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    line-height: 1.1;
 }
 
 .work-entry__subtitle {
@@ -576,17 +586,28 @@ body::before {
 /* Two-column body: narrative + stats */
 .work-entry__body {
     display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 56px;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
     align-items: start;
 }
 
-/* Narrative paragraphs */
+/* Narrative paragraphs — editorial serif style */
 .work-entry__narrative p {
-    font-size: 16px;
+    font-family: var(--serif);
+    font-size: 17px;
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 20px;
+    line-height: 1.85;
+    margin-bottom: 24px;
+}
+
+.work-entry__narrative em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.work-entry__narrative strong {
+    font-weight: 600;
+    color: var(--accent);
 }
 
 .work-entry__narrative p:last-child { margin-bottom: 0; }
@@ -740,12 +761,13 @@ body::before {
 }
 
 .lab__card h3 {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 400;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 600;
     color: var(--text);
     margin-bottom: 12px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 .lab__card--featured h3 { font-size: 36px; }
