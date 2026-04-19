@@ -154,12 +154,10 @@
                     ECS task definitions with proper IAM role separation. By early 2026, all services were
                     containerized and running in production on ECS.</p>
 
-                    <p>I also led the response to a security incident where passwords were being logged unencrypted
-                    in Grafana. Within 30 minutes I'd traced it to a specific PHP file, implemented a Grafana Alloy
-                    filter as immediate mitigation, then coordinated a multi-layer fix across teams: Grafana filter,
-                    Apache filter, and PHP-level redaction. Separately, I drove a migration of hardcoded credentials
-                    to AWS Systems Manager Parameter Store &mdash; 64% migrated in the first month, database
-                    credentials at 100%.</p>
+                    <p>On the security side, I led credential management improvements &mdash; migrating hardcoded
+                    secrets to AWS Systems Manager Parameter Store and implementing multi-layer log redaction
+                    to prevent sensitive data exposure. I also established incident response procedures and
+                    coordinated cross-team remediation efforts.</p>
 
                     <p>Beyond the code: Grafana dashboards for service version tracking and deployment history,
                     677 Confluence pages consolidated into searchable knowledge bases, and a tracking repo
