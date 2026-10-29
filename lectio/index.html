@@ -455,6 +455,105 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
   input[type=range]::-webkit-slider-thumb { width: 22px; height: 22px; margin-top: -9.5px; }
   input[type=range]::-moz-range-thumb { width: 20px; height: 20px; }
 }
+/* ---------- celebrations: gold leaf, not confetti ---------- */
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; }
+.reticle .rule::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 3px; background: linear-gradient(90deg, transparent, var(--gilt), #fff3c4, var(--gilt), transparent); background-size: 40% 100%; background-repeat: no-repeat; background-position: -40% 0; opacity: 0; filter: drop-shadow(0 0 6px var(--gilt)); }
+.reticle.gild .rule::before { animation: gildSweep 1.25s cubic-bezier(.3,.6,.2,1); }
+.reticle.gild .rule.bot::before { animation-delay: .14s; }
+@keyframes gildSweep { 0% { opacity: 1; background-position: -40% 0; } 80% { opacity: 1; } 100% { opacity: 0; background-position: 140% 0; } }
+.word.card.gold { background: linear-gradient(100deg, var(--gilt) 25%, #fff3c4 45%, var(--gilt) 65%); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: shine 1.7s ease-out; text-shadow: none; }
+.word.card.gold small { -webkit-text-fill-color: var(--rubric); color: var(--rubric); }
+@keyframes shine { from { background-position: 100% 0; } to { background-position: 0 0; } }
+.journey-btn.glint .ring { animation: ringGlint 1s ease-out; }
+@keyframes ringGlint { 0% { transform: rotate(-90deg) scale(1); } 30% { transform: rotate(-90deg) scale(1.4); filter: drop-shadow(0 0 6px var(--gilt)); } 100% { transform: rotate(-90deg) scale(1); } }
+.jstreak { display: inline-flex; align-items: center; gap: 1px; color: var(--gilt); font-weight: 700; }
+.jstreak svg { width: 11px; height: 15px; }
+.jstreak.out { color: var(--faint); }
+#prog.near::-webkit-slider-runnable-track { box-shadow: 0 0 10px var(--gilt); }
+.progress-row .lab.near-lbl { color: var(--gilt); font-weight: 650; }
+
+.cele { position: fixed; inset: 0; z-index: 55; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: var(--scrim); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; transition: opacity .4s; }
+.cele.show { opacity: 1; }
+.cele-card { position: relative; box-sizing: border-box; min-width: 0; width: min(420px, 100%); max-height: 100%; overflow-y: auto; background: var(--surface); border: 1px solid var(--gilt); border-radius: 24px; box-shadow: var(--shadow), 0 0 60px var(--gilt-soft); padding: 30px 24px 20px; display: grid; gap: 14px; justify-items: center; text-align: center; transform: translateY(24px) scale(.94); transition: transform .6s cubic-bezier(.2,.9,.25,1.25); }
+.cele.show .cele-card { transform: none; }
+.cele-emblem { width: 150px; height: 150px; display: grid; place-items: center; }
+.cele-emblem svg { width: 100%; height: 100%; overflow: visible; }
+.cele-eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; font-weight: 700; color: var(--rubric); }
+.cele-title { margin: 0; font-family: var(--f-display); font-style: italic; font-weight: 600; font-size: 42px; line-height: 1.02; color: var(--gilt); text-wrap: balance; }
+.cele-body { margin: 0; font-family: var(--f-read); font-size: 15.5px; line-height: 1.6; color: var(--ink); max-width: 34ch; text-wrap: pretty; }
+.cele-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cele-stats b { display: block; font-family: var(--f-display); font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1.1; }
+.cele-actions { display: grid; gap: 6px; width: 100%; margin-top: 4px; }
+.cele-actions .primary { min-height: 52px; padding: 0 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 15px; }
+.cele-actions .secondary { min-height: 40px; border-radius: 999px; color: var(--muted); font-weight: 600; font-size: 14px; }
+.cele-extra { display: grid; gap: 14px; width: 100%; min-width: 0; justify-items: center; }
+.cele-extra .shelf { justify-self: stretch; }
+.seal.new .r1 { stroke-dasharray: 290; stroke-dashoffset: 290; animation: draw 1.3s cubic-bezier(.4,.1,.2,1) forwards; }
+.seal.new .r2 { opacity: 0; animation: fadeIn .6s .9s forwards; }
+.seal.new .disc { opacity: 0; animation: fadeIn .7s .7s forwards; }
+.seal.new .glyph { opacity: 0; transform-origin: 50px 50px; transform-box: view-box; animation: stamp .7s 1.05s cubic-bezier(.2,1.4,.3,1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes stamp { from { opacity: 0; transform: scale(1.6); } to { opacity: 1; transform: scale(1); } }
+.ms-ring .arc { transition: stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1); }
+.ms-ring text { font-family: var(--f-display); font-weight: 600; fill: var(--gilt); }
+
+.medal { position: fixed; left: 50%; top: calc(66px + env(safe-area-inset-top, 0px)); transform: translate(-50%, -14px); z-index: 50; display: flex; gap: 12px; align-items: center; padding: 10px 18px 10px 12px; border-radius: 18px; background: var(--surface); border: 1px solid var(--gilt); box-shadow: var(--shadow), 0 0 30px var(--gilt-soft); opacity: 0; pointer-events: none; transition: opacity .3s, transform .5s cubic-bezier(.2,.9,.25,1.3); width: max-content; max-width: calc(100vw - 32px); text-align: left; }
+.medal.show { opacity: 1; transform: translate(-50%, 0); }
+.medal .mi { width: 40px; height: 40px; flex: none; display: grid; place-items: center; }
+.medal .mi svg { width: 100%; height: 100%; overflow: visible; }
+.medal b { display: block; font-family: var(--f-display); font-size: 20px; font-weight: 600; color: var(--gilt); line-height: 1.15; }
+.medal span { font-size: 12.5px; color: var(--muted); }
+
+.shelf { display: grid; gap: 14px; width: 100%; }
+.shelf-row { display: grid; gap: 5px; }
+.shelf-lbl { display: flex; justify-content: space-between; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+.shelf-lbl span:last-child { letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.spines { display: flex; align-items: flex-end; gap: 1px; height: var(--shelf-h, 64px); border-bottom: 3px solid var(--line); }
+.spine { position: relative; flex: var(--w) 1 0; min-width: 3px; height: var(--h); padding: 0; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--sec) 38%, transparent); overflow: hidden; }
+.spine i { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(180deg, #f8e3a3, #d6b26b 55%, #9c7429); transition: height 1.2s cubic-bezier(.2,.8,.2,1); }
+.spine.done { box-shadow: 0 0 9px rgba(214,178,107,.55); }
+.spine.done::after { content: ""; position: absolute; left: 0; right: 0; top: 16%; height: 2px; background: rgba(255,255,255,.6); }
+.spine.cur { outline: 1.5px solid var(--rubric); outline-offset: 1px; }
+.spine:focus-visible { outline-offset: 2px; }
+.mini .spines { --shelf-h: 34px; border-bottom-width: 2px; }
+.mini .spine { min-width: 2px; }
+.shelf-cap { min-height: 1.4em; font-size: 12.5px; color: var(--muted); text-align: center; }
+.shelf-cap b { color: var(--ink); font-weight: 650; }
+
+.j-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.j-lamp { display: grid; justify-items: center; gap: 4px; }
+.j-lamp .lamp { width: 74px; height: 56px; }
+.j-lamp b { font-family: var(--f-display); font-size: 20px; font-weight: 600; line-height: 1; color: var(--gilt); }
+.j-finish { font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.j-finish:empty { display: none; }
+.lamp { width: 92px; height: 70px; overflow: visible; }
+.lamp .body { fill: var(--gilt); }
+.lamp .flame { transform-origin: 88px 50px; transform-box: view-box; transform: scale(var(--fs, 1)); animation: flicker 2.6s ease-in-out infinite; }
+.lamp .glow { opacity: var(--glow, .5); animation: breathe 3.2s ease-in-out infinite; }
+.lamp.out .flame { opacity: .22; animation: none; }
+.lamp.out .glow { opacity: .05; animation: none; }
+@keyframes flicker { 0%, 100% { transform: scale(var(--fs, 1)) rotate(-2deg); } 25% { transform: scale(calc(var(--fs, 1) * 1.06), calc(var(--fs, 1) * .95)) rotate(2deg); } 50% { transform: scale(calc(var(--fs, 1) * .95), calc(var(--fs, 1) * 1.06)) rotate(-1deg); } 75% { transform: scale(var(--fs, 1)) rotate(1.5deg); } }
+@keyframes breathe { 50% { opacity: calc(var(--glow, .5) * .7); } }
+.week { display: flex; gap: 7px; justify-content: center; }
+.week span { width: 9px; height: 9px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--line); }
+.week span.lit { background: var(--gilt); box-shadow: 0 0 6px var(--gilt); }
+.week span.grace { box-shadow: inset 0 0 0 1.5px var(--gilt); }
+.week span.today { outline: 1.5px solid var(--rubric); outline-offset: 2px; }
+.wel-lamp { display: flex; align-items: center; gap: 14px; justify-content: center; }
+.wel-lamp .lamp { width: 104px; height: 80px; }
+.wel-lamp b { display: block; font-family: var(--f-display); font-size: 34px; font-weight: 600; line-height: 1; color: var(--gilt); text-align: left; }
+.wel-lamp span { display: block; font-size: 12.5px; color: var(--muted); max-width: 18ch; text-align: left; line-height: 1.4; }
+.wel-pct { font-family: var(--f-display); font-size: 46px; font-weight: 600; line-height: 1; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.wel-pct small { font-size: 22px; color: var(--muted); }
+.wel-sub { font-size: 12.5px; color: var(--muted); margin-top: -8px; font-variant-numeric: tabular-nums; }
+
+.seals { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 12px 6px; }
+.seal-cell { display: grid; justify-items: center; gap: 4px; font-size: 10px; color: var(--muted); text-align: center; line-height: 1.2; }
+.seal-cell svg { width: 50px; height: 50px; }
+.seal-cell.locked svg { opacity: .28; filter: grayscale(1); }
+.seal-cell:not(.locked) span { color: var(--ink); font-weight: 600; }
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
 
@@ -469,6 +568,7 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
     <button class="journey-btn" id="journeyBtn" title="Your progress through the Bible (J)" aria-label="Reading progress">
       <svg class="ring" viewBox="0 0 24 24"><circle class="trk" cx="12" cy="12" r="9"/><circle class="val" id="ringVal" cx="12" cy="12" r="9" stroke-dasharray="56.55" stroke-dashoffset="56.55"/></svg>
       <span id="jBadge">0%</span>
+      <span class="jstreak" id="jStreak" hidden><svg viewBox="0 0 12 16"><path d="M6 0C8 3 10 5.5 10 9a4 4 0 0 1-8 0c0-2 1-3.4 2-4.6C4.2 6 5 6.6 5.6 6.8 5.2 4.3 5.4 2 6 0Z" fill="currentColor"/></svg><span></span></span>
     </button>
     <div class="tools">
       <button class="icon-btn" id="searchBtn" title="Search scripture (/)" aria-label="Search">
@@ -573,8 +673,11 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
   <div class="sheet-head"><h2>Through the <em>Bible</em></h2><button class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
   <div class="sheet-body">
     <section class="j-hero">
-      <div class="j-pct" id="jPct">0<small>%</small></div>
+      <div class="j-top"><div class="j-pct" id="jPct">0<small>%</small></div><div class="j-lamp" id="jLamp"></div></div>
       <div class="j-sub" id="jSub">Loading your progress…</div>
+      <div class="j-finish" id="jFinish"></div>
+      <div class="shelf" id="shelf"></div>
+      <div class="shelf-cap" id="shelfCap">Each spine is a book, as wide as it is long. Tap one.</div>
       <div class="sync" id="sync"><i></i><span>Saved in this browser</span></div>
     </section>
     <div class="j-actions">
@@ -591,8 +694,8 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
       <p class="goal-note" id="goalNote"></p>
     </section>
     <section class="sec">
-      <div class="sec-title"><span>By section</span></div>
-      <div class="bars" id="bars"></div>
+      <div class="sec-title"><span>Seals</span><span id="sealCount"></span></div>
+      <div class="seals" id="seals"></div>
     </section>
     <section class="sec">
       <div class="sec-title"><span>Every chapter</span><span>Choose a square to read it</span></div>
@@ -665,6 +768,17 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
     </section>
 
     <p class="credit needs-sum" hidden>Chapter summaries from <a href="https://biblesummary.info" target="_blank" rel="noopener">Bible Summary</a> by Chris Juby, used with permission.</p>
+    <section class="sec">
+      <div class="sec-title"><span>Celebrations</span></div>
+      <div class="row"><span class="lbl">Gold and sparkle<span class="sub">When you finish chapters and books, and reach milestones</span></span><button class="switch" role="switch" data-set="celebrate" aria-label="Celebrations"></button></div>
+      <div class="row"><span class="lbl">Bells<span class="sub">Soft chimes. Your phone's silent switch mutes them</span></span><button class="switch" role="switch" data-set="sound" aria-label="Sound"></button></div>
+      <div class="slider-row">
+        <div class="top"><label for="volRange">Volume</label><output id="volOut">60%</output></div>
+        <input type="range" id="volRange" min="0" max="100" step="5">
+      </div>
+      <div class="row"><span class="lbl">Welcome when you open<span class="sub">Your lamp, your shelf and where you left off</span></span><button class="switch" role="switch" data-set="welcome" aria-label="Welcome screen"></button></div>
+      <div class="chips"><button class="chip" id="previewCele">Preview a book celebration</button><button class="chip" id="previewWelcome">Show the welcome</button></div>
+    </section>
     <section class="sec">
       <div class="sec-title"><span>Your reading</span><span>Kept on this device</span></div>
       <div class="stats" id="stats"></div>
@@ -770,7 +884,7 @@ const GROUPS = [
   ['DC', 'Deuterocanon', ['Tobit','Judith','Wisdom','Sirach','Baruch','1 Maccabees','2 Maccabees']]
 ];
 const DEF = { wpm: 300, chunk: 1, pause: 1, versePause: true, longSlow: true, ramp: true, autoNext: true,
-  orp: true, guides: true, verseMode: 'faint', focus: true, preview: true, skim: false, font: 'Literata', size: 64, weight: 500, track: 0, skin: 'auto', tr: 'kjv' };
+  orp: true, guides: true, verseMode: 'faint', focus: true, preview: true, skim: false, celebrate: true, sound: true, volPct: 60, welcome: true, font: 'Literata', size: 64, weight: 500, track: 0, skin: 'auto', tr: 'kjv' };
 let S = Object.assign({}, DEF, store.get('settings', {}));
 if (S.context === false && !store.get('settings', {}).verseMode) S.verseMode = 'off';
 delete S.context;
@@ -1113,7 +1227,9 @@ function updateProgress(a) {
   el.prog.style.setProperty('--pct', (n > 1 ? a / (n - 1) * 100 : 0) + '%');
   const v = tokens[a] ? tokens[a].v : 0;
   el.progL.textContent = skimming() ? 'Chapter ' + (pos.c + 1) + ' of ' + B.books[pos.b][1].length : 'Verse ' + (v + 1) + ' of ' + (vStart.length - 1);
-  if (!playing || played - lastEst >= 10 || played < 2) { lastEst = played; el.progR.textContent = fmtMin(msLeft(a)) + ' left'; }
+  const near = !skimming() && n > 20 && a / (n - 1) >= .85;
+  el.prog.classList.toggle('near', near); el.progR.classList.toggle('near-lbl', near);
+  if (!playing || played - lastEst >= 10 || played < 2) { lastEst = played; el.progR.textContent = (near ? 'Nearly there · ' : '') + fmtMin(msLeft(a)) + ' left'; }
 }
 function renderAll() {
   const meta = trMeta(S.tr);
@@ -1139,6 +1255,7 @@ function play() {
   if (!B || playing) return;
   if (i >= tokens.length) i = 0;
   playing = true; played = 0; userMoved = true;
+  Sound.init(); sessStart = Date.now();
   if (!el.app.classList.contains('seen-hint')) { el.app.classList.add('seen-hint'); store.set('seenHint', 1); }
   el.app.classList.add('playing');
   el.playIcon.innerHTML = PAUSE; el.play.setAttribute('aria-label', 'Pause');
@@ -1163,7 +1280,13 @@ function pause() {
   el.playIcon.innerHTML = PLAY; el.play.setAttribute('aria-label', 'Play');
   try { wakeLock && wakeLock.release(); } catch (e) {} wakeLock = null;
   if (played > 0) notePlace();
-  store.set('stats', stats); savePos(); syncResume();
+  store.set('stats', stats); savePos(); syncResume(); store.set('lastSeen', Date.now());
+  if (sessStart) { sessMs += Date.now() - sessStart; sessStart = 0; }
+  if (pendingCele) { const ev = pendingCele; pendingCele = null; quickCelebrate(ev); }
+  else if (!celeBusy && sessMs - sessNoted >= 5 * 60e3) {
+    sessNoted = sessMs; const si = streakInfo();
+    medal(lampSVG(si), fmtMin(sessMs) + ' of reading', (sessCh ? sessCh + (sessCh === 1 ? ' chapter' : ' chapters') + ' this session · ' : '') + (si.days ? 'day ' + si.days + ' of your streak' : 'a good start'));
+  }
   if (tokens.length) updateProgress(Math.min(i, tokens.length - 1));
 }
 const toggle = () => playing ? pause() : play();
@@ -1175,12 +1298,29 @@ function step() {
   const d = delayFor(i, j, played);
   countWords(j - i); played++;
   if (!chapterMarked && !skimming() && j >= Math.ceil(tokens.length * .95)) { chapterMarked = true; markChapter(true, true); }
+  if (S.celebrate && litDay !== dayKey() && (stats.days[dayKey()] || 0) >= 150) lampLit();
   timer = setTimeout(() => { i = j; if (played % 8 === 0) { savePos(); notePlace(); } step(); }, d);
 }
 function chapterEnd() {
   const next = nextChapterPos(1);
   // finishing a book clears its bookmark; it no longer counts as in progress
   if (!next || next.b !== pos.b) { delete places[B.books[pos.b][0]]; store.set('places', places); }
+  const ev = pendingCele; pendingCele = null;
+  if (ev && S.celebrate) {
+    chapterCard(ev);
+    if (ev.big.length) {
+      // a finished book or a milestone: stop and celebrate properly, then carry on from the next chapter
+      celeBusy = true; pause(); i = tokens.length;
+      setTimeout(() => showCelebrations(ev.big.slice(), () => { celeBusy = false; if (next) { goChapter(next.b, next.c); play(); } }), 1500);
+      return;
+    }
+    timer = setTimeout(() => { if (playing) proceedAfter(next); else if (next && S.autoNext) goChapter(next.b, next.c); }, 2000);
+    return;
+  }
+  if (ev) quickCelebrate(ev);
+  proceedAfter(next);
+}
+function proceedAfter(next) {
   if (S.autoNext && next) {
     goChapter(next.b, next.c, true);
     if (!maybePreview()) {
@@ -1267,11 +1407,25 @@ function countWords(n) {
   const k = dayKey(); stats.days[k] = (stats.days[k] || 0) + n; stats.total += n;
   if ((statDirty += n) > 40) { statDirty = 0; store.set('stats', stats); }
 }
-function streak() {
-  let s = 0; const d = new Date();
-  if (!stats.days[dayKey(d)]) d.setDate(d.getDate() - 1);
-  while (stats.days[dayKey(d)]) { s++; d.setDate(d.getDate() - 1); }
-  return s;
+function streak() { return streakInfo().days; }
+// A streak forgives one missed day per week (Monday to Sunday), so one bad day never wipes out a month.
+const weekOf = dt => { const x = new Date(dt); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return dayKey(x); };
+function streakInfo() {
+  const today = new Date(), litToday = !!stats.days[dayKey(today)], grace = new Set(), graceDays = new Set();
+  const d = new Date(today); if (!litToday) d.setDate(d.getDate() - 1);
+  let days = 0, gap = null;   // gap: a missed day that counts as grace only if reading came before it
+  for (let k = 0; k < 4000; k++) {
+    const key = dayKey(d);
+    if (stats.days[key]) { days++; if (gap) { graceDays.add(gap); gap = null; } }
+    else { const w = weekOf(d); if (gap || grace.has(w)) break; grace.add(w); gap = key; }
+    d.setDate(d.getDate() - 1);
+  }
+  return { days, litToday, graceDays };
+}
+function weekDots(si) {
+  let h = '<div class="week" aria-hidden="true">'; const d = new Date(); d.setDate(d.getDate() - 6);
+  for (let k = 0; k < 7; k++) { const key = dayKey(d); h += '<span class="' + (stats.days[key] ? 'lit' : si.graceDays.has(key) ? 'grace' : '') + (k === 6 ? ' today' : '') + '"></span>'; d.setDate(d.getDate() + 1); }
+  return h + '</div>';
 }
 function renderStats() {
   const today = stats.days[dayKey()] || 0;
@@ -1528,7 +1682,7 @@ function buildSettings() {
     b.onclick = () => { S.skin = s.id; saveS(); syncSettings(); };
     sl.appendChild(b);
   });
-  $$('.switch').forEach(sw => sw.onclick = () => { const k = sw.dataset.set; S[k] = !S[k]; saveS(); syncSettings(); if (['pause','versePause','longSlow'].includes(k)) { lastEst = -99; if (tokens.length) updateProgress(Math.min(i, tokens.length - 1)); } });
+  $$('.switch').forEach(sw => sw.onclick = () => { const k = sw.dataset.set; S[k] = !S[k]; saveS(); syncSettings(); if (k === 'sound' && S.sound) { Sound.init(); Sound.chapter(); } if (['pause','versePause','longSlow'].includes(k)) { lastEst = -99; if (tokens.length) updateProgress(Math.min(i, tokens.length - 1)); } });
   const bind = (id, out, key, fmt) => {
     const r = $('#' + id);
     r.oninput = () => {
@@ -1540,6 +1694,8 @@ function buildSettings() {
   bind('sizeRange', 'sizeOut', 'size', v => v + ' px');
   bind('weightRange', 'weightOut', 'weight');
   bind('trackRange', 'trackOut', 'track', v => (v > 0 ? '+' : '') + v);
+  bind('volRange', 'volOut', 'volPct', v => v + '%');
+  $('#volRange').addEventListener('change', () => { Sound.init(); Sound.chapter(); });
   let armed = 0;
   $('#resetBtn').onclick = e => {
     if (Date.now() - armed > 3000) { armed = Date.now(); e.target.textContent = 'Press again to restore defaults'; setTimeout(() => e.target.textContent = 'Restore default settings', 3000); return; }
@@ -1562,7 +1718,7 @@ function syncSettings() {
   $$('.switch').forEach(sw => sw.setAttribute('aria-checked', !!S[sw.dataset.set]));
   $$('.font-opt').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === S.font));
   $$('.skin-opt').forEach(b => b.setAttribute('aria-pressed', b.dataset.s === S.skin));
-  [['wpmRange','wpmOut','wpm'],['sizeRange','sizeOut','size',v=>v+' px'],['weightRange','weightOut','weight'],['trackRange','trackOut','track',v=>(v>0?'+':'')+v]].forEach(([r,o,k,f]) => {
+  [['volRange','volOut','volPct',v=>v+'%'],['wpmRange','wpmOut','wpm'],['sizeRange','sizeOut','size',v=>v+' px'],['weightRange','weightOut','weight'],['trackRange','trackOut','track',v=>(v>0?'+':'')+v]].forEach(([r,o,k,f]) => {
     const R = $('#' + r); R.value = S[k]; $('#' + o).textContent = f ? f(S[k]) : S[k]; syncRange(R);
   });
   syncPause(); syncVerseSeg(); applyType(); setPreview();
@@ -1596,11 +1752,11 @@ function markChapter(val, auto) {
   if (!setRead(name, pos.c, val)) return;
   chapterMarked = val;
   if (val) {
-    const t = totals();
-    toast(readCount(name, len) === len ? 'You finished ' + name + ' · ' + pctOf(t.done, t.ch) + '% of the Bible'
-      : ref() + ' read · ' + t.done.toLocaleString() + ' of ' + t.ch.toLocaleString() + ' chapters');
-  }
-  if (!auto) toast(val ? ref() + ' marked as read' : ref() + ' marked as unread');
+    const ev = chapterEvents(pos.b, pos.c);
+    sessCh++;
+    if (auto) pendingCele = ev;   // celebrated when the chapter's last word has gone by
+    else quickCelebrate(ev);
+  } else toast(ref() + ' marked as unread');
   syncMarkBtn();
   if (openSheet && openSheet.id === 'journeySheet') renderJourney();
 }
@@ -1616,6 +1772,9 @@ function updateBadge() {
   const t = totals(), f = t.ch ? t.done / t.ch : 0;
   $('#ringVal').setAttribute('stroke-dashoffset', (56.55 * (1 - f)).toFixed(2));
   $('#jBadge').textContent = pctOf(t.done, t.ch) + '%';
+  const si = streakInfo(), js = $('#jStreak');
+  js.hidden = !si.days; js.classList.toggle('out', !si.litToday); js.lastChild.textContent = si.days;
+  js.title = si.litToday ? 'Day ' + si.days + ' of your streak' : 'Read today to keep your ' + si.days + '-day streak';
 }
 function nextUnread() {
   const n = B.books.length;
@@ -1668,17 +1827,16 @@ function renderJourney() {
       gn.append(' (about ' + (perDay < 10 ? perDay.toFixed(1) : Math.round(perDay)) + ' chapters) at ' + S.wpm + ' wpm. ' + daysLeft + (daysLeft === 1 ? ' day' : ' days') + ' to go.');
     }
   }
-  // sections
-  const names = { OT: 'Old Testament', NT: 'New Testament', DC: 'Deuterocanon' };
-  const bars = $('#bars'); bars.textContent = '';
-  ['OT', 'NT', 'DC'].forEach(k => {
-    const s = t.sec[k]; if (!s) return;
-    const r = document.createElement('div'); r.className = 'bar-row';
-    r.innerHTML = '<span></span><div class="meter"><i></i></div><span></span>';
-    r.children[0].textContent = names[k]; r.children[1].firstChild.style.width = (s.done / s.ch * 100) + '%';
-    r.children[2].textContent = s.done + '/' + s.ch;
-    bars.appendChild(r);
-  });
+  // lamp, finish date, shelf and seals
+  const si = streakInfo(), jl = $('#jLamp');
+  jl.innerHTML = lampSVG(si) + '<b></b>' + weekDots(si);
+  jl.querySelector('b').textContent = si.days ? 'Day ' + si.days : 'No streak yet';
+  const pace = paceInfo(t);
+  $('#jFinish').textContent = t.done === t.ch ? '' : pace
+    ? 'At your recent pace, about ' + fmtMin(estWords(pace.perDay)) + ' a day, you will finish around ' + pace.end.toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' }) + '.'
+    : '';
+  renderShelf($('#shelf'), false, true);
+  renderSeals();
   // map
   const map = $('#map'); map.textContent = ''; let lastG = null;
   const frag = document.createDocumentFragment();
@@ -1750,7 +1908,7 @@ async function cloudWrite(k, retried) {
   if (!cloud) return;
   if (writing[k]) { pendingW[k] = true; return; }
   writing[k] = true;
-  try { await cloud[k].set(k === 'prog' ? { read: P.read, goal: P.goal, v: 1 } : resumeData()); }
+  try { await cloud[k].set(k === 'prog' ? { read: P.read, goal: P.goal, ms: P.ms || [], v: 1 } : resumeData()); }
   catch (e) {
     const code = e && e.code;
     if (code === 'unavailable' && !retried) { writing[k] = false; setTimeout(() => cloudWrite(k, true), 800 + Math.random() * 1200); return; }
@@ -1784,6 +1942,7 @@ async function initCloud(booted) {
       if (m !== String(remote[k] || '')) push = true;
       if (m) P.read[k] = m; else delete P.read[k];
     });
+    if (ps.exists && Array.isArray(ps.data().ms)) { const before = (P.ms || []).length; P.ms = [...new Set([...(P.ms || []), ...ps.data().ms])]; if (P.ms.length > ps.data().ms.length || P.ms.length > before) push = true; }
     if (ps.exists && ps.data().goal && !P.goal) P.goal = ps.data().goal;
     else if (P.goal && !(ps.exists && ps.data().goal)) push = true;
     store.set('progress', P);
@@ -1806,7 +1965,7 @@ async function initCloud(booted) {
 }
 // ---------- progress codes: copy progress between devices without an account ----------
 function exportCode() {
-  const data = { v: 1, read: P.read, goal: P.goal, places, days: stats.days, total: stats.total, resume: resumeData() };
+  const data = { v: 1, read: P.read, goal: P.goal, ms: P.ms || [], places, days: stats.days, total: stats.total, resume: resumeData() };
   return 'LECTIO1:' + btoa(unescape(encodeURIComponent(JSON.stringify(data))));
 }
 async function importCode(code) {
@@ -1817,6 +1976,8 @@ async function importCode(code) {
   catch (e) { throw new Error('That code is incomplete. Copy it again from the other device.'); }
   Object.entries(d.read || {}).forEach(([k, v]) => { const x = orStr(P.read[k] || '', String(v)); if (x) P.read[k] = x; });
   if (d.goal && !P.goal) P.goal = d.goal;
+  P.ms = [...new Set([...(P.ms || []), ...(d.ms || [])])];
+  newMilestones(true);
   Object.entries(d.places || {}).forEach(([k, v]) => { if (v && (!places[k] || (v.at || 0) > (places[k].at || 0))) places[k] = v; });
   Object.entries(d.days || {}).forEach(([k, n]) => { if ((stats.days[k] || 0) < n) stats.days[k] = n; });
   stats.total = Math.max(stats.total, d.total || 0);
@@ -1832,6 +1993,402 @@ async function applyResume(r) {
   buildChapter(); i = Math.min(r.i || 0, Math.max(0, tokens.length - 1));
   renderAll();
   toast('Picked up where you left off · ' + ref(tokens.length ? tokens[i].v : 0));
+}
+
+// ---------- celebrations: sound, sparkle, seals, the lamp, the shelf ----------
+let pendingCele = null, celeBusy = false, celeEl = null, litDay = store.get('litDay', '');
+let sessStart = 0, sessMs = 0, sessNoted = 0, sessCh = 0;
+const reduceMotion = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+const isDark = () => { const m = getComputedStyle(document.body).backgroundColor.match(/\d+/g) || [255, 255, 255]; return (+m[0] * .3 + +m[1] * .59 + +m[2] * .11) < 110; };
+
+// Bells, synthesised: a few inharmonic partials with long decays. Nothing plays until the reader has tapped.
+const Sound = {
+  ctx: null, out: null,
+  init() {
+    if (!S.sound) return null;
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+    try { if (navigator.audioSession) navigator.audioSession.type = 'ambient'; } catch (e) {}   // mix with music rather than stopping it
+    if (!this.ctx) {
+      try {
+        this.ctx = new AC();
+        this.out = this.ctx.createGain();
+        const comp = this.ctx.createDynamicsCompressor();
+        this.out.connect(comp); comp.connect(this.ctx.destination);
+      } catch (e) { this.ctx = null; return null; }
+    }
+    if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+    return this.ctx;
+  },
+  ready() {
+    if (!S.sound || !this.ctx || this.ctx.state !== 'running') return null;
+    this.out.gain.value = Math.pow(S.volPct / 100, 1.5) * 1.1;
+    return this.ctx;
+  },
+  bell(f, at, vol, len) {
+    const c = this.ready(); if (!c) return;
+    const t = c.currentTime + (at || 0);
+    [[1, 1], [2.01, .55], [2.76, .34], [4.07, .2], [5.4, .11], [6.79, .06]].forEach(([r, a]) => {
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = 'sine'; o.frequency.value = f * r * (1 + (Math.random() - .5) * .002);
+      const d = len / (1 + r * .32);
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol * a, t + .005); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+      o.connect(g); g.connect(this.out); o.start(t); o.stop(t + d + .05);
+    });
+  },
+  shimmer(at, n, vol) { for (let k = 0; k < n; k++) this.bell(2000 + Math.random() * 2600, at + k * .07 + Math.random() * .05, vol, .8); },
+  tap() { this.bell(1567.98, 0, .14, .9); },
+  lamp() { this.bell(1046.5, 0, .24, 2); this.bell(1567.98, .12, .12, 1.6); },
+  chapter() { this.bell(1318.51, 0, .34, 2.4); this.bell(1975.53, .1, .16, 1.8); this.shimmer(.15, 3, .03); },
+  book() { [783.99, 987.77, 1174.66, 1567.98].forEach((f, k) => this.bell(f, k * .17, .34, 3)); this.shimmer(.75, 8, .05); },
+  milestone() {
+    [523.25, 659.25, 783.99, 1046.5].forEach(f => this.bell(f, 0, .22, 3.6));
+    [1318.51, 1567.98, 2093].forEach((f, k) => this.bell(f, .3 + k * .13, .17, 2.6));
+    this.shimmer(.55, 12, .045);
+  },
+  peal() {
+    [1046.5, 987.77, 880, 783.99, 698.46, 659.25, 587.33, 523.25].forEach((f, k) => this.bell(f, k * .24, .3, 3.2));
+    [261.63, 523.25, 659.25, 783.99, 1046.5].forEach(f => this.bell(f, 2.1, .2, 5));
+    this.shimmer(2.2, 18, .045);
+  }
+};
+
+// Gold flecks: small four-point sparkles that burst, drift and fade.
+const FX = { cv: null, c: null, parts: [], raf: 0, dpr: 1 };
+function sparkle(x, y, n, o) {
+  if (!S.celebrate || reduceMotion()) return;
+  o = o || {};
+  if (!FX.cv) { FX.cv = document.createElement('canvas'); FX.cv.id = 'fx'; document.body.appendChild(FX.cv); FX.c = FX.cv.getContext('2d'); }
+  FX.dpr = Math.min(2, window.devicePixelRatio || 1);
+  const W = Math.round(innerWidth * FX.dpr), H = Math.round(innerHeight * FX.dpr);
+  if (FX.cv.width !== W || FX.cv.height !== H) { FX.cv.width = W; FX.cv.height = H; }
+  const cols = ['#fff3c4', '#f6dc94', '#e3c27a', '#c8963e'];
+  for (let k = 0; k < n; k++) {
+    const a = (o.angle == null ? -Math.PI / 2 : o.angle) + (Math.random() - .5) * (o.spread == null ? Math.PI * 1.5 : o.spread);
+    const sp = (o.speed || 5) * (.3 + Math.random());
+    FX.parts.push({ x: x + (Math.random() - .5) * (o.w || 0), y: y + (Math.random() - .5) * (o.h || 0), vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+      g: o.g == null ? .1 : o.g, life: 0, max: 50 + Math.random() * 60 * (o.long || 1), s: 1.4 + Math.random() * 3.2, rot: Math.random() * 6, vr: (Math.random() - .5) * .3, col: cols[k % 4], tw: Math.random() * 6 });
+  }
+  if (!FX.raf) FX.raf = requestAnimationFrame(fxTick);
+}
+function fxTick() {
+  const c = FX.c, d = FX.dpr;
+  c.clearRect(0, 0, FX.cv.width, FX.cv.height);
+  c.globalCompositeOperation = isDark() ? 'lighter' : 'source-over';
+  FX.parts = FX.parts.filter(p => p.life < p.max);
+  for (const p of FX.parts) {
+    p.life++; p.vx *= .984; p.vy = p.vy * .984 + p.g; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+    const t = p.life / p.max, al = (t < .12 ? t / .12 : 1 - (t - .12) / .88) * (.65 + .35 * Math.sin(p.life * .45 + p.tw));
+    const r = p.s * d;
+    c.save(); c.translate(p.x * d, p.y * d); c.rotate(p.rot); c.globalAlpha = Math.max(0, al); c.fillStyle = p.col;
+    c.beginPath(); c.moveTo(0, -r * 2.2);
+    c.quadraticCurveTo(r * .25, -r * .25, r * 2.2, 0); c.quadraticCurveTo(r * .25, r * .25, 0, r * 2.2);
+    c.quadraticCurveTo(-r * .25, r * .25, -r * 2.2, 0); c.quadraticCurveTo(-r * .25, -r * .25, 0, -r * 2.2);
+    c.fill(); c.restore();
+  }
+  FX.raf = FX.parts.length ? requestAnimationFrame(fxTick) : 0;
+  if (!FX.raf) c.clearRect(0, 0, FX.cv.width, FX.cv.height);
+}
+const centerOf = node => { const r = node.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2, r.width, r.height]; };
+function glintRing() {
+  const jb = $('#journeyBtn'); jb.classList.remove('glint'); void jb.offsetWidth; jb.classList.add('glint');
+  const r = jb.getBoundingClientRect(); sparkle(r.left + 16, r.top + r.height / 2, 14, { speed: 2.4, g: .03, spread: Math.PI * 2 });
+}
+
+// Seals: each book's initial as an illuminated capital, coloured by its section.
+const SEC_COLOR = { 'The Law': '#8e2a2a', 'History': '#7a5230', 'Wisdom & Poetry': '#56448a', 'Major Prophets': '#2c5a86', 'Minor Prophets': '#2b6f6c',
+  'Gospels': '#a87a22', 'The Early Church': '#a4532a', "Paul's Letters": '#3b6a45', 'General Letters': '#5e6427', 'Prophecy': '#7a2544', 'Deuterocanon': '#6a5a4a' };
+const secColor = name => SEC_COLOR[groupOf(name)[1]] || '#6a5a4a';
+const ROMAN = { 1: 'I', 2: 'II', 3: 'III' };
+function sealSVG(name, earned, cls) {
+  const m = /^(\d)\s+(.*)$/.exec(name), num = m ? ROMAN[m[1]] : '', letter = (m ? m[2] : name).charAt(0);
+  return '<svg viewBox="0 0 100 100" class="seal ' + (cls || '') + '" aria-hidden="true">'
+    + '<defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8e3a3"/><stop offset=".5" stop-color="#d6b26b"/><stop offset="1" stop-color="#9c7429"/></linearGradient></defs>'
+    + (earned ? '<circle class="disc" cx="50" cy="50" r="45" fill="' + secColor(name) + '"/>' : '')
+    + '<circle class="r1" cx="50" cy="50" r="46" fill="none" stroke="url(#sg)" stroke-width="3"/>'
+    + '<circle class="r2" cx="50" cy="50" r="38.5" fill="none" stroke="url(#sg)" stroke-width="1.2" stroke-dasharray="1.6 3.4"/>'
+    + '<text class="glyph" x="50" y="' + (num ? 60 : 66) + '" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-weight="600" font-size="' + (num ? 44 : 52) + '" fill="url(#sg)">' + letter + '</text>'
+    + (num ? '<text class="glyph" x="50" y="80" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="14" letter-spacing="1" fill="url(#sg)">' + num + '</text>' : '')
+    + '</svg>';
+}
+function renderSeals() {
+  const box = $('#seals'); box.textContent = ''; let earned = 0;
+  B.books.forEach(b => {
+    const done = readCount(b[0], b[1].length) === b[1].length; if (done) earned++;
+    const c = document.createElement('div'); c.className = 'seal-cell' + (done ? '' : ' locked');
+    c.innerHTML = sealSVG(b[0], done) + '<span></span>'; c.lastChild.textContent = b[0];
+    c.title = done ? b[0] + ' · complete' : b[0] + ' · not yet';
+    box.appendChild(c);
+  });
+  $('#sealCount').textContent = earned + ' of ' + B.books.length;
+}
+
+// The lamp: "Thy word is a lamp unto my feet" (Psalm 119:105). It burns brighter as the streak grows.
+function lampSVG(si) {
+  const n = Math.min(si.days, 30) / 30, fs = si.litToday ? .78 + n * .5 : .6, glow = si.litToday ? .35 + n * .55 : .08;
+  return '<svg viewBox="0 0 120 90" class="lamp' + (si.litToday ? '' : ' out') + '" style="--fs:' + fs.toFixed(2) + ';--glow:' + glow.toFixed(2) + '" aria-hidden="true">'
+    + '<defs><radialGradient id="lgf" cx="50%" cy="72%" r="62%"><stop offset="0" stop-color="#fff7d6"/><stop offset=".45" stop-color="#f7c75c"/><stop offset="1" stop-color="#e0772c" stop-opacity="0"/></radialGradient>'
+    + '<radialGradient id="lgg"><stop offset="0" stop-color="#f7c75c" stop-opacity=".7"/><stop offset="1" stop-color="#f7c75c" stop-opacity="0"/></radialGradient></defs>'
+    + '<circle class="glow" cx="88" cy="36" r="34" fill="url(#lgg)"/>'
+    + '<g class="flame"><path d="M88 16 C96 30 98 40 88 50 C78 40 80 30 88 16 Z" fill="url(#lgf)"/><path d="M88 32 C91 38 91 43 88 48 C85 43 85 38 88 32 Z" fill="#fffbe9" opacity=".85"/></g>'
+    + '<path class="body" d="M10 58 C10 47 38 43 62 45 L86 49 C95 50 96 56 89 58.5 C70 67 28 71 10 58 Z"/>'
+    + '<path d="M11 56 C1 53 2 43 12 45" fill="none" stroke="var(--gilt)" stroke-width="3.4" stroke-linecap="round"/>'
+    + '<ellipse cx="44" cy="55" rx="9" ry="2.6" fill="var(--surface)" opacity=".55"/>'
+    + '<path d="M34 69 L54 69 L50 63 L38 63 Z" fill="var(--gilt)"/>'
+    + '</svg>';
+}
+
+// The bookshelf: one spine per book, as wide as the book is long, gilded as it is read.
+const spineH = name => { let h = 0; for (const ch of name) h = (h * 31 + ch.charCodeAt(0)) % 997; return 64 + h % 34; };
+function renderShelf(box, mini, animate) {
+  box.textContent = ''; box.classList.toggle('mini', !!mini);
+  const rows = { OT: [], NT: [], DC: [] }, names = { OT: 'Old Testament', NT: 'New Testament', DC: 'Deuterocanon' };
+  B.books.forEach((b, bi) => rows[groupOf(b[0])[0]].push(bi));
+  let n = 0;
+  Object.entries(rows).forEach(([k, arr]) => {
+    if (!arr.length) return;
+    let ch = 0, done = 0;
+    const row = document.createElement('div'); row.className = 'shelf-row';
+    const sp = document.createElement('div'); sp.className = 'spines';
+    arr.forEach(bi => {
+      const name = B.books[bi][0], len = B.books[bi][1].length, d = readCount(name, len);
+      ch += len; done += d;
+      const s = document.createElement(mini ? 'span' : 'button');
+      s.className = 'spine' + (d === len ? ' done' : '') + (bi === pos.b && !mini ? ' cur' : '');
+      s.dataset.b = bi;
+      s.style.setProperty('--w', B.wc[bi].reduce((a, x) => a + x, 0));
+      s.style.setProperty('--h', spineH(name) + '%');
+      s.style.setProperty('--sec', secColor(name));
+      if (!mini) s.setAttribute('aria-label', name + ': ' + d + ' of ' + len + ' chapters read');
+      const f = document.createElement('i'), pct = d / len * 100;
+      if (animate && !reduceMotion()) { f.style.transitionDelay = (n * 14) + 'ms'; requestAnimationFrame(() => requestAnimationFrame(() => { f.style.height = pct + '%'; })); }
+      else { f.style.transition = 'none'; f.style.height = pct + '%'; }
+      n++;
+      s.appendChild(f); sp.appendChild(s);
+    });
+    const lbl = document.createElement('div'); lbl.className = 'shelf-lbl';
+    lbl.innerHTML = '<span></span><span></span>'; lbl.children[0].textContent = names[k]; lbl.children[1].textContent = done + ' / ' + ch;
+    row.append(lbl, sp); box.appendChild(row);
+  });
+}
+
+// Milestones, with something true to say at each one.
+const MS = [1, 5, 10, 25, 33, 50, 66, 75, 90];
+const MS_TEXT = {
+  first: d => ['Your first chapter', 'Every reading of the whole Bible starts with one chapter. ' + d.left.toLocaleString() + ' to go.'],
+  1: d => ['The journey has begun', d.done + ' chapters read. That is one in every hundred.'],
+  5: d => ['Five percent', 'That is more chapters than the whole book of Genesis.'],
+  10: d => ['One chapter in ten', d.done + ' chapters behind you, ' + d.left.toLocaleString() + ' ahead. The Bible was written over some fifteen centuries; you are making good time.'],
+  25: d => ['A quarter of the Bible', 'You have read ' + fmtBig(d.wd) + ' words, about as many as ' + Math.max(2, Math.round(d.wd / 90000)) + ' novels.'],
+  33: d => ['A third of the way', 'Two more of these and you will have read it all.'],
+  50: d => ['Halfway', 'Psalm 117, the shortest chapter in the Bible, is traditionally counted as its middle. You have read as much as you have left.'],
+  66: d => ['Two thirds', 'Only a third of the Bible is still ahead. Keep the lamp burning.'],
+  75: d => ['Three quarters', 'The finish is in sight: ' + d.left.toLocaleString() + ' chapters to go.'],
+  90: d => ['Nine chapters in ten', 'Only ' + d.left.toLocaleString() + ' chapters left. Nearly there.'],
+  nt: d => ['A New Testament of words', 'You have now read more words than the whole New Testament contains.'],
+  100: d => ['The whole Bible', '“The grace of our Lord Jesus Christ be with you all. Amen.” Revelation 22:21']
+};
+let ntCache = { tr: '', w: 0 };
+function ntWords() {
+  if (ntCache.tr !== S.tr) { let w = 0; B.books.forEach((b, bi) => { if (groupOf(b[0])[0] === 'NT') w += B.wc[bi].reduce((a, x) => a + x, 0); }); ntCache = { tr: S.tr, w }; }
+  return ntCache.w;
+}
+function newMilestones(silent) {
+  if (!B) return [];
+  if (!Array.isArray(P.ms)) P.ms = [];
+  const t = totals(), pct = t.ch ? t.done / t.ch * 100 : 0, out = [], before = P.ms.length;
+  const d = { done: t.done, ch: t.ch, left: t.ch - t.done, wd: t.wd, w: t.w };
+  const make = (key, p) => { const [title, body] = MS_TEXT[key](d); return { type: 'milestone', key, pct: p == null ? pct : p, title, body }; };
+  if (t.done >= 1 && !P.ms.includes('first')) { P.ms.push('first'); out.push(make('first')); }
+  let top = null;
+  MS.forEach(p => { if (pct >= p && !P.ms.includes('p' + p)) { P.ms.push('p' + p); top = p; } });
+  if (top != null) out.push(make(top));
+  if (t.done === t.ch && t.ch && !P.ms.includes('p100')) { P.ms.push('p100'); out.push(Object.assign(make(100, 100), { type: 'complete' })); }
+  const nw = ntWords();
+  if (nw && t.wd >= nw && t.done < t.ch && !P.ms.includes('nt')) { P.ms.push('nt'); out.push(make('nt')); }
+  if (P.ms.length !== before) { store.set('progress', P); cloudWrite('prog'); }
+  if (silent) return [];
+  const best = out.find(e => e.type === 'complete') || out.find(e => e.key !== 'first' && e.key !== 'nt') || out[0];
+  return best ? [best] : [];
+}
+function chapterEvents(bi, c) {
+  const ev = { bi, c, big: [] }, name = B.books[bi][0], len = B.books[bi][1].length;
+  if (readCount(name, len) === len) {
+    const g = groupOf(name)[1], sec = B.books.filter(b => groupOf(b[0])[1] === g);
+    const secDone = sec.length > 1 && sec.every(b => readCount(b[0], b[1].length) === b[1].length);
+    ev.big.push({ type: 'book', bi, section: secDone ? g : null });
+  }
+  ev.big.push(...newMilestones());
+  return ev;
+}
+
+// The chapter moment, shown in place of the next chapter's title card.
+function chapterLine(ev) {
+  const name = B.books[ev.bi][0], len = B.books[ev.bi][1].length, done = readCount(name, len), left = len - done;
+  if (!left) return name + ' complete. Every chapter read.';
+  const wl = B.wc[ev.bi].reduce((a, w, k) => a + (isRead(name, k) ? 0 : w), 0);
+  const line = done + ' of ' + len + ' in ' + name + ' · ' + (left === 1 ? 'one chapter left' : left + ' to go') + ' · ' + fmtMin(estWords(wl)) + ' to finish';
+  return left <= 3 ? 'Nearly there. ' + line : line;
+}
+function chapterCard(ev) {
+  card(B.books[ev.bi][0] + ' ' + (ev.c + 1), 'Chapter complete');
+  el.word.classList.add('gold');
+  el.ctx.textContent = chapterLine(ev); el.ctx.classList.add('summary'); ctxVerse = -1;
+  const r = $('.reticle'); r.classList.remove('gild'); void r.offsetWidth; r.classList.add('gild');
+  const [x, y, w] = centerOf(el.word);
+  sparkle(x, y, 70, { spread: Math.PI * 2, speed: 6, g: .05, w: w * .6, h: 20 });
+  setTimeout(() => sparkle(x, y, 30, { spread: Math.PI * .9, speed: 3.5, g: -.02, w: w, long: 1.4 }), 380);
+  glintRing(); updateBadge(); Sound.chapter();
+}
+function quickCelebrate(ev) {
+  if (!S.celebrate) { toast(B.books[ev.bi][0] + ' ' + (ev.c + 1) + ' read'); return; }
+  medal(sealSVG(B.books[ev.bi][0], true), B.books[ev.bi][0] + ' ' + (ev.c + 1) + ' · read', chapterLine(ev));
+  glintRing(); updateBadge(); Sound.chapter();
+  if (ev.big.length) { celeBusy = true; setTimeout(() => showCelebrations(ev.big.slice(), () => { celeBusy = false; }), 900); }
+}
+let medalT = 0;
+function medal(icon, title, sub) {
+  let m = $('#medal');
+  if (!m) { m = document.createElement('div'); m.id = 'medal'; m.className = 'medal'; m.setAttribute('role', 'status'); document.body.appendChild(m); }
+  m.innerHTML = '<div class="mi"></div><div><b></b><span></span></div>';
+  m.querySelector('.mi').innerHTML = icon; m.querySelector('b').textContent = title; m.querySelector('span').textContent = sub;
+  m.classList.remove('show'); void m.offsetWidth; m.classList.add('show');
+  clearTimeout(medalT); medalT = setTimeout(() => m.classList.remove('show'), 3600);
+  const r = m.getBoundingClientRect(); sparkle(r.left + 32, r.top + r.height / 2, 22, { speed: 3, g: .03, spread: Math.PI * 2 });
+}
+function lampLit() {
+  litDay = dayKey(); store.set('litDay', litDay);
+  const si = streakInfo();
+  medal(lampSVG(si), si.days > 1 ? 'Day ' + si.days + ' · your lamp is lit' : 'Your lamp is lit',
+    si.days > 1 ? 'Your streak carries on. Come back tomorrow to keep it burning.' : 'Read a little each day to keep it burning.');
+  Sound.lamp(); updateBadge();
+}
+
+// Full-screen moments: a finished book, a milestone, the welcome.
+function openCele(o) {
+  closeCele(true);
+  const w = document.createElement('div'); w.className = 'cele'; w.setAttribute('role', 'dialog'); w.setAttribute('aria-modal', 'true'); w.setAttribute('aria-label', o.title || 'Celebration');
+  const card = document.createElement('div'); card.className = 'cele-card';
+  if (o.emblem) { const e = document.createElement('div'); e.className = 'cele-emblem'; e.innerHTML = o.emblem; card.appendChild(e); }
+  if (o.eyebrow) { const e = document.createElement('div'); e.className = 'cele-eyebrow'; e.textContent = o.eyebrow; card.appendChild(e); }
+  if (o.title) { const e = document.createElement('h2'); e.className = 'cele-title'; e.textContent = o.title; card.appendChild(e); }
+  if (o.body) { const e = document.createElement('p'); e.className = 'cele-body'; e.textContent = o.body; card.appendChild(e); }
+  if (o.extra) { o.extra.classList.add('cele-extra'); card.appendChild(o.extra); }
+  if (o.stats) {
+    const e = document.createElement('div'); e.className = 'cele-stats';
+    o.stats.forEach(([b, l]) => { const s = document.createElement('span'); const bb = document.createElement('b'); bb.textContent = b; s.append(bb, l); e.appendChild(s); });
+    card.appendChild(e);
+  }
+  const acts = document.createElement('div'); acts.className = 'cele-actions';
+  const pb = document.createElement('button'); pb.className = 'primary'; pb.textContent = o.primary || 'Continue';
+  pb.onclick = () => { Sound.init(); Sound.tap(); closeCele(); o.onPrimary && o.onPrimary(); };
+  acts.appendChild(pb);
+  if (o.secondary) { const sb = document.createElement('button'); sb.className = 'secondary'; sb.textContent = o.secondary; sb.onclick = () => { closeCele(); o.onSecondary && o.onSecondary(); }; acts.appendChild(sb); }
+  card.appendChild(acts); w.appendChild(card);
+  document.body.appendChild(w); celeEl = w;
+  requestAnimationFrame(() => { w.classList.add('show'); setTimeout(() => pb.focus({ preventScroll: true }), 200); });
+  if (o.fx) setTimeout(() => o.fx(card), 250);
+}
+function closeCele(instant) {
+  const w = celeEl; if (!w) return; celeEl = null;
+  if (instant) { w.remove(); return; }
+  w.classList.remove('show'); setTimeout(() => w.remove(), 420);
+}
+const SECTION_DONE = { 'The Law': 'That completes the Law, all five books of Moses.', 'History': 'That completes the history books, Joshua to Esther.',
+  'Wisdom & Poetry': 'That completes the books of wisdom and poetry.', 'Major Prophets': 'That completes the major prophets.',
+  'Minor Prophets': 'That completes all twelve minor prophets.', 'Gospels': 'That completes all four Gospels.',
+  "Paul's Letters": "That completes all of Paul's letters.", 'General Letters': 'That completes the general letters.', 'Deuterocanon': 'That completes the deuterocanon.' };
+function msRing(pct) {
+  const C = 2 * Math.PI * 44;
+  return '<svg viewBox="0 0 100 100" class="ms-ring" aria-hidden="true"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8e3a3"/><stop offset=".5" stop-color="#d6b26b"/><stop offset="1" stop-color="#9c7429"/></linearGradient></defs>'
+    + '<circle cx="50" cy="50" r="44" fill="none" stroke="var(--line)" stroke-width="5"/>'
+    + '<circle class="arc" cx="50" cy="50" r="44" fill="none" stroke="url(#mg)" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + C.toFixed(1) + '" data-to="' + (C * (1 - Math.min(100, pct) / 100)).toFixed(1) + '" transform="rotate(-90 50 50)"/>'
+    + '<text x="50" y="58" text-anchor="middle" font-size="25">' + (pct >= 10 || pct === 0 ? Math.floor(pct) : pct.toFixed(1)) + '%</text></svg>';
+}
+function showCelebrations(list, done) {
+  const ev = list.shift(); if (!ev) { done && done(); return; }
+  const next = () => showCelebrations(list, done);
+  const t = totals();
+  if (ev.type === 'book') {
+    const name = B.books[ev.bi][0], len = B.books[ev.bi][1].length, words = B.wc[ev.bi].reduce((a, x) => a + x, 0);
+    const earned = B.books.filter(b => readCount(b[0], b[1].length) === b[1].length).length;
+    openCele({
+      emblem: sealSVG(name, true, 'new'), eyebrow: ev.preview ? 'Preview · book complete' : 'Book complete', title: name,
+      body: (ev.section ? SECTION_DONE[ev.section] || '' : 'You have read every chapter of ' + name + '.') + ' Seal ' + earned + ' of ' + B.books.length + ' is yours.',
+      stats: [[len, 'chapters'], [words.toLocaleString(), 'words'], [fmtMin(estWords(words)), 'of reading']],
+      primary: list.length ? 'Continue' : 'Carry on reading', secondary: 'See your seals',
+      onPrimary: next, onSecondary: () => { done && done(); open('journeySheet'); setTimeout(() => $('#seals').scrollIntoView({ block: 'center', behavior: 'smooth' }), 400); },
+      fx: card => {
+        Sound.book();
+        const [x, y] = centerOf(card.querySelector('.cele-emblem'));
+        setTimeout(() => sparkle(x, y, 120, { spread: Math.PI * 2, speed: 8, g: .07 }), 1050);
+        setTimeout(() => sparkle(x, y - 40, 60, { spread: Math.PI * 2, speed: 5, g: .05, w: 200, long: 1.5 }), 1600);
+      }
+    });
+  } else {
+    const complete = ev.type === 'complete';
+    openCele({
+      emblem: msRing(ev.pct), eyebrow: complete ? 'Finished' : 'Milestone', title: ev.title, body: ev.body,
+      stats: complete ? [[t.ch.toLocaleString(), 'chapters'], [fmtBig(t.w), 'words']] : [[t.done.toLocaleString(), 'of ' + t.ch.toLocaleString() + ' chapters'], [fmtMin(estWords(t.w - t.wd)), 'to go']],
+      primary: 'Continue', onPrimary: next,
+      fx: card => {
+        const arc = card.querySelector('.arc'); requestAnimationFrame(() => arc.setAttribute('stroke-dashoffset', arc.dataset.to));
+        const [x, y] = centerOf(card.querySelector('.cele-emblem'));
+        if (complete) { Sound.peal(); [0, 700, 1400, 2200].forEach(dl => setTimeout(() => sparkle(x, y, 110, { spread: Math.PI * 2, speed: 9, g: .06, w: 120 }), dl)); }
+        else { Sound.milestone(); sparkle(x, y, 100, { spread: Math.PI * 2, speed: 7, g: .06 }); setTimeout(() => sparkle(x, y, 40, { spread: Math.PI, speed: 3, g: -.03, w: 160, long: 1.6 }), 500); }
+      }
+    });
+  }
+}
+function countUp(node, to, ms) {
+  if (reduceMotion()) { node.firstChild.nodeValue = pctOf(to * 100, 10000); return; }
+  const t0 = performance.now();
+  const tick = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3), v = to * e; node.firstChild.nodeValue = v > 0 && v < 10 ? v.toFixed(1) : String(Math.floor(v)); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+function maybeWelcome() {
+  if (!S.welcome || !B || celeEl || openSheet || playing) return;
+  if (Date.now() - store.get('lastSeen', 0) < 20 * 60e3) return;
+  showWelcome();
+}
+function showWelcome() {
+  if (!B) return;
+  store.set('lastSeen', Date.now());
+  const t = totals(), si = streakInfo(), hr = new Date().getHours();
+  const greet = hr < 5 ? 'Good evening' : hr < 12 ? 'Good morning' : hr < 18 ? 'Good afternoon' : 'Good evening';
+  const v = tokens.length ? tokens[Math.min(i, tokens.length - 1)].v : 0;
+  const started = t.done > 0 || i > 0 || posAt > 0;
+  const extra = document.createElement('div');
+  const lamp = document.createElement('div'); lamp.className = 'wel-lamp';
+  lamp.innerHTML = lampSVG(si) + '<div><b></b><span></span></div>';
+  lamp.querySelector('b').textContent = si.days ? 'Day ' + si.days : 'Day 1';
+  lamp.querySelector('span').textContent = si.litToday ? 'Your lamp is lit for today.' : si.days ? 'Read today to keep your lamp burning.' : 'Light your lamp: read a little today.';
+  extra.appendChild(lamp);
+  const wk = document.createElement('div'); wk.innerHTML = weekDots(si); extra.appendChild(wk.firstChild);
+  const shelf = document.createElement('div'); shelf.className = 'shelf'; extra.appendChild(shelf);
+  const pc = document.createElement('div'); pc.className = 'wel-pct'; pc.append('0'); const sm = document.createElement('small'); sm.textContent = '%'; pc.appendChild(sm); extra.appendChild(pc);
+  const sub = document.createElement('div'); sub.className = 'wel-sub';
+  const pace = paceInfo(t);
+  sub.textContent = t.done.toLocaleString() + ' of ' + t.ch.toLocaleString() + ' chapters' + (pace ? ' · finishing around ' + pace.end.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : t.done < t.ch ? ' · ' + fmtMin(estWords(t.w - t.wd)) + ' to go' : '');
+  extra.appendChild(sub);
+  const sm2 = summaryFor(pos.b, pos.c);
+  openCele({
+    eyebrow: new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long' }), title: greet,
+    body: sm2 ? 'Up next in ' + ref() + ': ' + sm2 : '', extra,
+    primary: (started ? 'Continue · ' + ref(v) : 'Begin · ' + ref()), secondary: 'Not now',
+    onPrimary: () => { if (!tokens.length) return; play(); },
+    fx: () => {
+      renderShelf(shelf, true, true);
+      countUp(pc, t.ch ? t.done / t.ch * 100 : 0, 1300);
+      if (si.litToday || si.days) { const g = lamp.querySelector('.lamp'); const [x, y] = centerOf(g); sparkle(x + 22, y - 12, 16, { speed: 1.6, g: -.03, spread: Math.PI * .6, long: 2 }); }
+    }
+  });
+}
+function paceInfo(t) {
+  let sum = 0; const d = new Date();
+  for (let k = 0; k < 14; k++) { sum += stats.days[dayKey(d)] || 0; d.setDate(d.getDate() - 1); }
+  const perDay = sum / 14; if (perDay < 40 || t.done >= t.ch) return null;
+  const days = Math.ceil((t.w - t.wd) / perDay);
+  return { perDay, days, end: new Date(Date.now() + days * 864e5) };
 }
 
 let toastT = 0;
@@ -1868,6 +2425,18 @@ $('#resumeBtn').onclick = () => { close(); play(); };
 $('#nextBtn').onclick = () => { const n = nextUnread(); if (!n) return; goChapter(n.b, n.c); close(); toast('Next unread · ' + ref()); };
 $('#map').addEventListener('click', e => { const c = e.target.closest('button[data-b]'); if (!c) return; goChapter(+c.dataset.b, +c.dataset.c); close(); toast(ref() + (isRead(B.books[pos.b][0], pos.c) ? ' · already read' : '')); });
 let resetArmed = 0;
+$('#previewCele').onclick = () => { Sound.init(); close(); setTimeout(() => showCelebrations([{ type: 'book', bi: pos.b, section: null, preview: true }]), 250); };
+$('#previewWelcome').onclick = () => { Sound.init(); close(); setTimeout(showWelcome, 250); };
+$('#shelf').addEventListener('click', e => {
+  const sp = e.target.closest('.spine'); if (!sp) return;
+  const bi = +sp.dataset.b, name = B.books[bi][0], len = B.books[bi][1].length, done = readCount(name, len);
+  const cap = $('#shelfCap');
+  if (cap.dataset.b === String(bi)) { bookView = bi; open('passageSheet'); return; }
+  cap.dataset.b = bi; cap.textContent = '';
+  const b = document.createElement('b'); b.textContent = name;
+  const left = B.wc[bi].reduce((a, w, k) => a + (isRead(name, k) ? 0 : w), 0);
+  cap.append(b, ' · ' + (done === len ? 'complete' : done + ' of ' + len + ' chapters · ' + fmtMin(estWords(left)) + ' to go') + ' · tap again to open');
+});
 $('#exportBtn').onclick = () => {
   const code = exportCode(), box = $('#codeBox');
   box.hidden = false; box.value = code; $('#importBtn').hidden = true;
@@ -1882,7 +2451,7 @@ $('#importBtn').onclick = async () => {
 };
 $('#resetProgBtn').onclick = e => {
   if (Date.now() - resetArmed > 4000) { resetArmed = Date.now(); e.target.textContent = 'Press again to clear every chapter'; setTimeout(() => e.target.textContent = 'Clear reading progress', 4000); return; }
-  P.read = {}; P.goal = null; places = {}; store.set('places', places); saveProgress(); syncResume(); chapterMarked = false; renderJourney(); e.target.textContent = 'Progress cleared';
+  P.read = {}; P.goal = null; P.ms = []; places = {}; store.set('places', places); saveProgress(); syncResume(); chapterMarked = false; renderJourney(); e.target.textContent = 'Progress cleared';
 };
 $('#searchBtn').onclick = () => open('searchSheet');
 $('#textBtn').onclick = () => open('textSheet');
@@ -1911,6 +2480,7 @@ document.addEventListener('keydown', e => {
   if (e.target.closest('input, textarea, select') && e.key !== 'Escape') return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key;
+  if (celeEl) { if (k === 'Enter' || k === ' ') { e.preventDefault(); celeEl.querySelector('.primary').click(); } else if (k === 'Escape') { e.preventDefault(); (celeEl.querySelector('.secondary') || celeEl.querySelector('.primary')).click(); } return; }
   if (k === 'Escape') { if (openSheet) { close(); e.preventDefault(); } return; }
   if (openSheet && k !== '/') { if (k === ' ' && !e.target.closest('button')) e.preventDefault(); return; }
   if (k === ' ' || k === 'k') { e.preventDefault(); toggle(); }
@@ -1927,9 +2497,9 @@ document.addEventListener('keydown', e => {
   else if (k === 'j' || k === 'J') open('journeySheet');
   else if (k === 'v' || k === 'V') { const n = VERSE_MODES.findIndex(m => m.v === S.verseMode); setVerseMode(VERSE_MODES[(n + 1) % VERSE_MODES.length].v, true); }
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) { pause(); } });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { pause(); store.set('lastSeen', Date.now()); } else setTimeout(maybeWelcome, 300); });
 window.addEventListener('resize', () => { if (el.word.children.length || el.word.classList.contains('phrase') || el.word.classList.contains('card')) fitWord(el.word); });
-window.addEventListener('pagehide', () => { store.set('stats', stats); savePos(); if (cloud) cloudWrite('resume'); });
+window.addEventListener('pagehide', () => { store.set('lastSeen', Date.now()); store.set('stats', stats); savePos(); if (cloud) cloudWrite('resume'); });
 
 // ---------- boot ----------
 buildSettings();
@@ -1941,7 +2511,11 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if
 // ask the browser not to clear saved progress under storage pressure (Safari otherwise may after weeks unused)
 try { navigator.storage && navigator.storage.persist && navigator.storage.persist().catch(() => {}); } catch (e) {}
 if (store.get('seenHint', 0)) el.app.classList.add('seen-hint');
-const booted = useTranslation(S.tr, false).then(() => { updateBadge(); syncMarkBtn(); loadSummaries(); });
+const booted = useTranslation(S.tr, false).then(() => {
+  if (!Array.isArray(P.ms)) { P.ms = []; newMilestones(true); }   // count what was already reached before celebrations existed
+  updateBadge(); syncMarkBtn(); loadSummaries();
+  setTimeout(maybeWelcome, 450);
+});
 initCloud(booted);
 // on its own website (not inside Claude) the reader installs to the home screen and works offline
 if (STANDALONE && 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) navigator.serviceWorker.register('sw.js').catch(() => {});

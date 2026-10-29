@@ -1,6 +1,6 @@
 // Lectio offline support: the page itself is fetched fresh when online (so updates arrive)
 // and served from the cache when offline; Bible texts and fonts are kept once downloaded.
-const CACHE = 'lectio-v3';
+const CACHE = 'lectio-v4';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/apple-touch-icon.png', 'data/summaries.json', 'data/kjv.gz.txt'];
 
 self.addEventListener('install', e => {
