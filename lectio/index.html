@@ -167,6 +167,20 @@ button, input[type=range] { touch-action: manipulation; -webkit-tap-highlight-co
 .hint { text-align: center; font-size: 12px; color: var(--faint); letter-spacing: .04em; transition: opacity .4s; }
 .hint kbd { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; color: var(--muted); background: var(--surface); }
 .playing .hint { opacity: 0; }
+.seen-hint .hint { display: none; }
+/* the chapter's summary, shown under the verse whenever reading is paused */
+.gist { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; max-width: 52ch; text-align: center; font-family: var(--f-read); font-style: italic; font-size: 14px; line-height: 1.55; color: var(--muted); transition: opacity .35s; cursor: default; text-wrap: pretty; }
+.gist b { font-family: var(--f-ui); font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gilt); margin-right: 8px; }
+.playing .gist { opacity: 0; }
+.context.summary ~ .gist { display: none; }
+/* tall phone screens: lift the word so the verse and summary below have room */
+@media (max-width: 560px) and (min-height: 640px) { .stage-inner { grid-template-rows: minmax(0, .62fr) auto minmax(0, 1.38fr); } }
+.ch-sums { display: grid; gap: 2px; margin-top: 6px; }
+.ch-sum { display: grid; grid-template-columns: 34px 1fr; gap: 10px; text-align: left; padding: 9px 10px; border-radius: 8px; font-family: var(--f-read); font-size: 14.5px; line-height: 1.5; }
+.ch-sum:hover { background: var(--sunk); }
+.ch-sum b { font-family: var(--f-ui); font-size: 13px; font-weight: 700; color: var(--gilt); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.ch-sum.done b::after { content: " ✓"; }
+.ch-sum.cur { background: var(--gilt-soft); }
 .load-err { display: grid; gap: 12px; justify-items: center; text-align: center; max-width: 46ch; font-size: 14px; line-height: 1.5; color: var(--rubric); cursor: default; }
 .load-err[hidden] { display: none; }
 .load-err .ghost-btn { justify-self: center; color: var(--ink); border-color: var(--rubric); }
@@ -418,7 +432,7 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
   .reticle { padding-block: 14px; }
   .reticle .rule::after { height: 9px; }
   .locus { display: none; }
-  .hint { display: none; }
+  .hint, .gist { display: none; }
   .context { font-size: calc(14px * var(--ctx-scale, 1)); line-height: 1.5; min-height: 0; }
   .transport { padding-block: 0 8px; gap: 4px; }
   .controls { grid-template-columns: 1fr auto 1fr; }
@@ -474,6 +488,7 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
       </div>
       <div class="below">
       <div class="context" id="context">In the beginning God created the heaven and the earth.</div>
+      <div class="gist" id="gist" hidden></div>
       <div class="load-err" id="loadErr" hidden><span id="loadErrMsg"></span><button class="ghost-btn" id="retryBtn">Try again</button></div>
       <div class="hint" id="hint"><span class="touch-hint">Tap to play or pause · swipe sideways for verses · swipe the word up or down to show or hide the verse</span><span class="key-hint">Tap or press <kbd>Space</kbd> to read · <kbd>←</kbd> <kbd>→</kbd> verse · <kbd>↑</kbd> <kbd>↓</kbd> speed</span></div>
       </div>
@@ -775,11 +790,20 @@ async function loadSummaries() {
     if (!r.ok) return;
     const d = await r.json();
     if (!d || !d.books) return;
-    SUM = d;
+    SUM = d; gistKey = '';
+    if (B) updateGist();
     $$('.needs-sum').forEach(e => e.hidden = false);
     if (S.skim && B) { buildChapter(); i = 0; renderAll(); }
     if (openSheet && openSheet.id === 'passageSheet') renderPassage();
   } catch (e) {}
+}
+let gistKey = '';
+function updateGist() {
+  const key = S.tr + ':' + pos.b + ':' + pos.c + ':' + skimming() + ':' + !!SUM;
+  if (key === gistKey) return; gistKey = key;
+  const g = $('#gist'), sm = skimming() ? '' : summaryFor(pos.b, pos.c);
+  g.hidden = !sm; g.textContent = '';
+  if (sm) { const b = document.createElement('b'); b.textContent = 'In this chapter'; g.append(b, sm); g.title = 'Bible Summary by Chris Juby'; }
 }
 let places = store.get('places', {}); // book name -> { c, i, at }: where reading last stopped in that book
 let cloud = null;
@@ -1040,6 +1064,7 @@ function show(a, j) {
   setWord(el.word, tokens.slice(a, j).map(t => t.w), true);
   const v = tokens[a].v;
   el.locRef.textContent = ref(v);
+  updateGist();
   renderContext(v, a, j);
   updateProgress(a);
   if (textOpen()) markText(a, j);
@@ -1106,6 +1131,7 @@ function play() {
   if (!B || playing) return;
   if (i >= tokens.length) i = 0;
   playing = true; played = 0; userMoved = true;
+  if (!el.app.classList.contains('seen-hint')) { el.app.classList.add('seen-hint'); store.set('seenHint', 1); }
   el.app.classList.add('playing');
   el.playIcon.innerHTML = PAUSE; el.play.setAttribute('aria-label', 'Pause');
   try { navigator.wakeLock && navigator.wakeLock.request('screen').then(l => wakeLock = l).catch(() => {}); } catch (e) {}
@@ -1312,6 +1338,12 @@ function renderPassage() {
     ['Revelation', 21, 'All things new']
   ];
   const q = $('#quick'); q.textContent = '';
+  if (SUM && !skimming()) {
+    const sk = document.createElement('button'); sk.className = 'chip';
+    sk.innerHTML = '<span>Skim the Bible</span><i>a line per chapter</i>';
+    sk.onclick = () => { S.skim = true; saveS(); buildChapter(); i = 0; renderAll(); close(); toast('Skimming ' + ref() + ' with Bible Summary · progress is not counted'); };
+    q.appendChild(sk);
+  }
   Q.forEach(([bk, ch, label]) => {
     const bi = B.books.findIndex(b => b[0] === bk); if (bi < 0) return;
     const c = Math.min(ch, B.books[bi][1].length) - 1;
@@ -1387,6 +1419,19 @@ function renderChapters(list, bi) {
     grid.appendChild(b);
   });
   list.appendChild(grid);
+  if (SUM && (SUM.books[B.books[bi][0]] || []).length) {
+    const box = document.createElement('div'); box.className = 'ch-sums';
+    const h = document.createElement('div'); h.className = 'sec-title'; h.innerHTML = '<span>Chapters at a glance</span><span>Bible Summary · Chris Juby</span>';
+    list.appendChild(h);
+    B.books[bi][1].forEach((_, c) => {
+      const sm = summaryFor(bi, c); if (!sm) return;
+      const r = document.createElement('button'); r.className = 'ch-sum' + (isRead(B.books[bi][0], c) ? ' done' : '') + (bi === pos.b && c === pos.c ? ' cur' : '');
+      r.innerHTML = '<b></b><span></span>'; r.children[0].textContent = c + 1; r.children[1].textContent = sm;
+      r.onclick = () => { goChapter(bi, c); bookView = null; close(); toast(ref() + ' · ' + fmtMin(estWords(B.wc[bi][c]))); };
+      box.appendChild(r);
+    });
+    list.appendChild(box);
+  }
 }
 
 // chapter text
@@ -1889,6 +1934,9 @@ if (!TRANSLATIONS.some(t => t.id === S.tr)) S.tr = 'kjv';
 el.wpmVal.innerHTML = S.wpm + '<small>WPM</small>';
 $$('#chunkSeg button, #chunkSeg2 button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.v === S.chunk));
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (tokens.length && !playing) show(i, chunkEnd(i)); });
+// ask the browser not to clear saved progress under storage pressure (Safari otherwise may after weeks unused)
+try { navigator.storage && navigator.storage.persist && navigator.storage.persist().catch(() => {}); } catch (e) {}
+if (store.get('seenHint', 0)) el.app.classList.add('seen-hint');
 const booted = useTranslation(S.tr, false).then(() => { updateBadge(); syncMarkBtn(); loadSummaries(); });
 initCloud(booted);
 // on its own website (not inside Claude) the reader installs to the home screen and works offline
